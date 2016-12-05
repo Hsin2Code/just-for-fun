@@ -1,0 +1,410 @@
+* LISP学习
+核心价值观：与其把功能写死，不如传进去一个函数参数。
+[[link][https://zh.wikibooks.org/wiki/Lisp_入門]]
+** 第一章 函数
+** 第二章 表、CAR、CDR
+*** CAR 操作符 （别名 first）
+CAR操作符的作用是取出表的第一个元素。
+#+BEGIN_SRC lisp
+  (car '(1 2 3 4 5))
+; result 1
+#+END_SRC
+*** CDR 操作符 （别名 rest）
+CDR 操作符和 CAR 的作用是相反的，它的作用是去除表的第一个元素。
+#+BEGIN_SRC lisp
+  (cdr '(1 2 3 4 5))
+; result (2 3 4 5)
+#+END_SRC
+*** CXR 组合操作符
+那么如何用这两个运算符取出第二个元素呢？
+实际上，LISP 中由专门的操作符来表示这些操作，比如 CADR
+#+BEGIN_SRC lisp
+  (cadr '(1 2 3 4 5))
+; result: 2
+#+END_SRC
+你也可以自己寻找更多类似的操作符。
+** 第三章 构造表
+*** CONS 操作符
+CONS 操作符的作用是连接一个元素与一个表（顺序不可颠倒）
+#+BEGIN_SRC lisp
+  (cons 1 '(2 3))
+; result (1 2 3)
+#+END_SRC
+*** S 表达式
+CONS 操作符的第二个参数要是一个列表，才能返回一个列表。否则：
+#+BEGIN_SRC lisp
+  (cons 2 3)
+; result (2 . 3)
+#+END_SRC
+这次中间有一个点。为什么呢？
+在S 表达式中，二叉树表示为(Left . Right)。
+如果左支是一个表，则就会成如下形式。
+((List) . Right)
+如果右分支是一个表，当然也可以表示为(Left . (List))，但是我们一般把点省略掉写成：
+(Left List)
+#+BEGIN_SRC lisp
+  '(1 . (2 3))
+; result (1 2 3)
+#+END_SRC
+CONS 操作符的实际作用是将两颗树连接成一棵树。
+真正有点实质性的是这个例子：
+#+BEGIN_SRC lisp
+  (cons 1 (cons 2 (cons 3 nil)))
+; result (1 2 3)
+  '(3 . nil)
+; result (3)
+  (cdr '(3))
+; result nil
+#+END_SRC
+*** append 函数
+append 函数的作用是连接两个表。
+#+BEGIN_SRC lisp
+  (append '(3 3) '(4 4))
+; result (3 3 4 4)
+  (append '((3)) '(4 4))
+; result ((3) 4 4)
+#+END_SRC
+要从现象去分析本质，通过二叉树的结构去分析，不难发现append函数的作用其实是将后面的二叉树，插在了前面的二叉树最后一个叶子节点上，也就是 nil 节点。
+*** LIST 函数
+LIST 函数的意义是将所有的参数放入一个表中并返回。
+#+BEGIN_SRC lisp
+  (list 1 2 3 4)
+; result (1 2 3 4)
+  (list '(2 3) '(2) 1 2)
+; result ((2 3) (2) 1 2)
+#+END_SRC
+结论：从结果上分析LIST 函数的实际作用就是将所有元素作为节点构造一个二叉树。
+** 第四章 原子和值
+*** 再讲原子
+这次，我们愿意详细讲解原子。
+原子可以是任何数，分数，小数，自然数，负数等等。
+原子可以是一个字母排列，当然其中可以夹杂数字和符号。
+空表就是原子NIL。
+
+在 LISP 解释器中输入引用符（单引号）紧接着输入一个原子，可以返回这个原子本身，就像对列表的操作一样。比如：
+#+BEGIN_SRC lisp
+  'sdf
+; result sdf
+#+END_SRC
+但原子中还是不能包含一些特殊字符的，比如逗号：sdf, 。这个会返回错误 Error: A comma has appered out of a backquote. 含义是，逗号出现在了单引号之外。
+
+结论：不难分析出，原子就是二叉树的一个叶子节点。
+*** ATOM 运算符
+判断一个字符序列是不是原子，或者甚至一个元素是不是原子，我们用ATOM 运算符。
+#+BEGIN_SRC lisp
+  (atom 'a)
+; result t
+  (atom '(3))
+; result nil
+#+END_SRC
+上面的第一个表达式返回 T，因为 a 是一个原子。而第二个表达式则返回 NIL，因为(3) 是一个列表。 换言之， ATOM运算符在参数为原子时返回真，在参数为一个表时或参数构不成原子时返回假。
+
+结论：实际上是看是不是能构成一个叶子节点。
+*** SETQ 运算符
+首先来看一下：
+#+BEGIN_SRC lisp
+  1
+; result 1
+  a
+; reslut Error: The variable A is unbound
+#+END_SRC
+很好，我们说过，解译器的功能就是对一个输入的表达式求值而已。1的值自然是1，然而a的值呢，错误说变量A的值还未经绑定。绑定的意思就是类c语言中的赋值。
+
+如何绑定一个变量呢，如下：
+#+BEGIN_SRC lisp
+  (setq a 5)
+; reslut 5
+#+END_SRC
+然后，我们再次输入a，情形就不同了。
+#+BEGIN_SRC lisp
+  a
+; reslut 5
+#+END_SRC
+不过，你肯定对输入(setq a 5)之后有一个5出现迷惑不解，setq运算符的意义就是赋值并且将此值返回。就是说，表达式(setq a 5)的值是5 。
+
+我们可以接着
+#+BEGIN_SRC lisp 
+  (setq a 6)
+;reslut 6
+  (cons a '(3))
+;reslut (6 3)
+#+END_SRC
+现在这样也是可以的：
+#+BEGIN_SRC lisp
+  (setq a 'b)
+;reslut b
+  (cons a '(3))
+;reslut (b 3)
+  (setq a '(1 2 3))
+;reslut (1 2 3)
+  (setq b a)
+;reslut (1 2 3)
+  (cdr b)
+;reslut (2 3)
+#+END_SRC
+
+结论：将一个二叉树的节点绑定到一个符号(变量名)上。
+** 第五章 断言函数
+*** ATOM 操作符
+前面已经讲过，用来判断一个表达式是不是原子。
+*** NULL 函数
+NULL 函数来判断表达式的值是不是NIL。
+#+BEGIN_SRC lisp
+  (null nil)
+; reslut t
+  (null (cdr '(3)))
+; reslut t
+  (null (car '(3)))
+; reslut nil
+  (null (+ 2 3 4 5))
+; reslut nil
+结论：没啥可解释的，判断一个二叉树的值是不是空。
+#+END_SRC
+*** EQUAL 函数
+用来判断两个表达式的值是否完全相等。
+#+BEGIN_SRC lisp
+  (equal (+ 2 4) (* 2 3))
+; reslut t
+  (equal (cdr '(1 2 3)) '(2 3))
+; reslut t
+#+END_SRC
+** 第六章 自己定义函数
+*** DEFUN 操作符
+DEFUN 操作符用来自定义函数，形势如下
+(defun 函数名原子 参数名列表 执行列表)
+比如：
+#+BEGIN_SRC lisp
+  (defun 2nd (x)
+    (car (cdr x))
+    )
+; reslut 2nd
+  (2nd '(1 2 3))
+; reslut 2
+#+END_SRC
+*** 参数
+参数就是我们第一个定义中的x，参数的个数是没有限制的。比如：
+#+BEGIN_SRC lisp
+  (defun lianjie (x y z)
+    (append x y z)
+    )
+; result lianjie
+(lianjie '(1 2) '(3 4) '(5 6))
+; result (1 2 3 4)
+#+END_SRC
+*** 系统自带的函数
+系统自带了很多函数，比如下面这两个函数：
+**** first 函数
+car的别名。
+**** last 函数
+last 函数的作用就是返回参数列表的最后一个元素所组成的表。
+#+BEGIN_SRC lisp
+  (last '(1 (2 3)))
+; result ((2 3))
+  (last '((((1 2) 3 4 ) 5) 6))
+; result (1)
+#+END_SRC
+返回列表的最后一个元素然后组成表返回。
+
+结论：为什么组成列表返回，因为是寻找二叉树的最“Right”的一个分支节点！
+*** 第一个自定义函数
+我们将要定义一个函数 ends，它的作用是返回参数列表的头尾两个元素组成的列表。如何实现呢，我们首先取出参数列表的第一个元素，然后取出最后一个元素，再将两者连在一起就行了。这要用到我们之前提到的 first 函数和 last 函数。
+#+BEGIN_SRC lisp
+  (defun ends (x) 
+    (cons (first x) (last x))
+    )
+; result ends
+  (ends '(1 2 3 4 5))
+; result (1 5)
+#+END_SRC
+上面的这个例子中，关键的一步相当于 (cons 1 '(5)) 。
+
+这样，我们就定义完成了这个函数。分析一下定义体中的 (cons (first x) (last x))这是要连接两个元素，第一个元素是 x 的第一个元素，第二个元素是 last 函数所取出的表。其结果自然就是x的头和尾两个元素所组成的列表。
+** 第七章 条件操作符
+*** COND 操作符
+COND 操作符有些复杂。 它的形式为:
+(cond 分支列表1 分支列表2 分支列表3 ... 分支列表N)
+而其中分支列表的构成为 (条件p 值e)
+
+Cond 操作符将对每一个“条件p”求值，如果为NIL，就接着求下一个，如果为真，就返回相应的“值e”，如果没有一个真值，cond操作符返回nil。Cond操作符的参数可以不止两个。
+#+BEGIN_SRC lisp
+  (cond (nil 1) (nil 2) (t 3))
+; result 3
+  (cond (t 1) (nil 2) (t 3))
+; result 1
+#+END_SRC
+有了cond操作符，我们就相当于拥有了类c语言中的if语句。当然，cond语句比c中的if语句更强大，同时也更难用。在common Lisp中，已经有一个函数if了，它的形式如下 (if 判断表达式 真值时的返回值 假值时的返回值)。
+*** 两个例子
+现在我们将编一个函数，返回两个数中的最大值。
+在编写之前，我们要知道，系统已经给我们提供了一个函数，那就是max 。所以我们的函数名字就叫max2，以示区别。
+我们依次输入以下代码：
+#+BEGIN_SRC lisp
+  (defun max2 (a b) (cond ((> a b) a) (t b)))
+; result max2
+  (max2 2 3)
+; result 3
+#+END_SRC
+Max2的行为分析：当参数a大于参数b时，返回a，如果不满足此条件，那么就一定要返回b。
+所以，我们的条件是a和b的大小比较，如果为真，则返回a，否则，一定返回b。
+当然，这个函数，我们也可以用if函数构造。构造如下：
+#+BEGIN_SRC lisp
+  (defun max2 (a b)
+    (if (> a b) a b)
+  )
+; result max2
+  (max2 4 1)
+; result 4
+#+END_SRC
+我们还可以定义一个求绝对值的函数。
+当然，这个函数系统本身也提供。这个函数的行为如下：
+#+BEGIN_SRC lisp
+  (abs -3)
+; result 3
+#+END_SRC
+该如何构造呢，显然，当参数大于0是返回本身，当参数小于0时返回它的相反数。
+#+BEGIN_SRC lisp
+  (defun abs2 (x) (cond ((> x 0) x) (t (- 0 x))))
+; result abs2
+  (abs2 -3)
+;result 3
+#+END_SRC
+其中，(- 0 x)表示的意思是0-x，也就是x的相反数。
+** 第八章 递归函数
+*** 一个小递归函数
+大家还记得数学上的递归定义么？
+我们所知的最简单的定义就是等差数列。
+#+BEGIN_EXAMPLE
+  a_n=a_n-1+d
+#+END_EXAMPLE
+我们有一个最简单的数列
+0 2 4 6 8 10 ...
+怎么表示呢，应该这样：
+#+BEGIN_EXAMPLE
+    a_n=a_n-1+2，其中a_1=0
+#+END_EXAMPLE
+那么其定义就是:
+#+BEGIN_SRC lisp
+  (defun dseq (n) (+ (dseq (- n 1)) 2))
+; reslut desq
+  (dseq 3)
+; reslut 无尽的循环
+#+END_SRC
+注意，不要立刻输进去，因为这是一个错误的式子，先看懂它再说。
+它的错误在哪里呢？如果dseq函数要求(dseq 3)，它就会先去求(dseq 2)，然后会再去求(dseq 1)，再是(dseq 0)，再是(dseq -1)，以至无穷。它的错误就在于它不会停止。
+
+这样的话，我们需要用到条件句。
+完整的定义如下：
+#+BEGIN_SRC lisp
+  (defun dseq (x) (cond ((= x 1) 0) (t (+ (dseq (- x 1)) 2))))
+; reslut dseq
+  (dseq 100)
+; reslut 198
+#+END_SRC
+后面的验证也说明它是正确的。
+*** trace函数
+下面一个函数len用来计算一个表x的长（即元素个数）度。
+递归式是(len (cdr x)) ，终结条件是(null x)为真。
+#+BEGIN_SRC lisp
+  (defun len_cond (x) (cond ((null x) 0) (t (+ (len (cdr x)) 1))))
+;reslut len_cond
+  (defun len_if (x) (if (null x) 0 (+ (len (cdr x)) 1)))
+;reslut len_if
+  (len '(1 2 3 4 5))
+;reslut 5
+#+END_SRC
+Trace函数用来跟踪函数调用的情况；
+#+BEGIN_SRC lisp
+  (trace len_if)
+  (LEN)
+  (len_if '(a b c d))
+#+END_SRC
+看看吧，会有很形象的东西出现。（elisp下看不到555）
+** 第九章 七大公理
+Lisp有7个基本操作符（实际上或许可以再精简）。这7个基本操作符就像几何中的公理一样，任何其他函数都可以由这七大公理定义。也就是说，7个基本操作符包含了Lisp的所有语义。
+这7个基本操作符是：
+*** QUOTE
+*** ATOM
+*** EQ
+*** CAR
+*** CDR
+*** CONS
+*** COND
+在下一章中，我们会定义几个小例子，讲解如何用这7个函数构建一些其他的基本函数。
+** 第十章 小例子
+从一到八章，我们讲解了许多函数，有好多不是公理，我们来一一实现它们（以及一些新的函数）。
+这些函数系统都有提供，我们重新发明一遍轮子。这些轮子的简单程度可以说是令人发指。
+*** NULL 函数
+NULL 函数用于检测表是否为空，或者元素是否为nil。
+#+BEGIN_SRC lisp
+  (defun null2 (x) (cond ((equal x nil) t) (t nil)))
+#+END_SRC
+解释：如果参数与nil相等，就返回t，否则返回nil。这和逻辑学上的not函数是一致的（但null函数的应用范围更广，因为它可以应用于表）。
+*** AND 函数
+#+BEGIN_SRC lisp
+  (defun and2 (x y) (cond ((equal x nil) nil) ((equal y nil) nil) (t t)))
+  (and2 nil t)
+; reslut nil
+#+END_SRC
+*** OR 函数
+#+BEGIN_SRC lisp
+  (defun or2 (x y) (cond ((equal x t) t) ((equal y t) t)))
+  (or2 nil nil)
+; reslut nil
+#+END_SRC
+*** LAST 函数
+#+BEGIN_SRC lisp
+  (defun last2 (x) (cond ((equal (cdr x) nil) x) (t (last2 (cdr x)))))
+  (last2 '(1 2 3 4 5))
+; reslut (5)
+#+END_SRC
+*** LENGTH 函数
+下面讲如何计算一个表X的长度（即元素个数）。
+#+BEGIN_SRC lisp
+  (defun len (x) (cond ((null x) 0) (t (+ (len (cdr x)) 1))))
+  (len '(a b c d e))
+; reslut 5
+#+END_SRC
+递归式是(len (cdr x)) ，终结条件是(null x)为真。
+*** APPEND 函数
+设参数形式是x和y。很容易分析出来，递归式是(cons (car x) (append2 (cdr x) y))，终结条件是当x为NIL时，返回y。
+#+BEGIN_SRC lisp
+  (defun append2 (x y) (cond ((eq x nil) y) (t (cons (car x) (append2 (cdr x) y)))))
+  (append2 '(a b) '(c d))
+; reslut (a b c d)
+#+END_SRC
+*** EQUAL 函数
+设参数形式是x和y。很容易分析出来，递归式是(equal (cdr x) (cdr y))，递归条件是(equal (car x) (car y))，终止条件是(equal (cdr x) nil)或者(equal (cdr y) nil)或者((atom x) (equal x y))
+#+BEGIN_SRC lisp
+  (defun equal2 (x y)
+    (cond
+     ((null x) (null y))
+     ((null y) (null x))
+     ((atom x) (eq x y))
+     ((atom y) (eq x y))
+     ((not (equal2  (car x) (car y))) nil)
+     (t (equal2 (cdr x) (cdr y)))
+     )
+    )
+  (equal2 '(a b c d) '(a b c d))
+#+END_SRC
+代码解释：
+   ((null x) (not y))
+首先，如果x为空，说明遇到了x列表的末尾，这时检测y列表是否也到了，如果到了（此时我们知道之前的元素都相等），那么返回真，否则返回假。
+   ((null y) (not x))
+如果y到了末尾，一样处理。
+   ((atom x) (eq x y))
+如果x是一个原子，说明函数是从(equal2 (car x) (car y))字句进入的，且(car x)的结果为原子。这时函数就可以结束了，返回x=y的结果。
+   ((atom y) (eq x y))
+如果y是一个原子，说明函数是从(equal2 (car x) (car y))字句进入的，且(car y)的结果为原子。这时函数就可以结束了，返回x=y的结果。
+   (t (equal2 (cdr x) (cdr y)))
+否则的情况，我们就递归。
+
+总结，大家可以发现，其实这个函数的递归路径有两个。
+If函数的表示
+用cond可以实现if函数。实际上，在类c语言中，if语句强调的是程序的走向，但在Lisp中，程序的走向可以忽略（从某种意义上），而强调的是返回值。
+#+BEGIN_SRC lisp
+  (defun if2 (p e1 e2)
+    (cond (p e1) (t e2))
+    )
+#+END_SRC
+*** WHILE 函数
+--需要一个while实现的例子。
