@@ -1,0 +1,74 @@
+* Ninety-Nine Lisp Problems
+** Working with lists
+1. Find the last box of a list.
+只含最后一个元素的列表。
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-last (lst)
+    (if (null (cdr lst))
+        lst
+      (fit-last (cdr lst))))
+#+END_SRC
+
+2. Find the last but one box of a list.
+除最后一个元素外的列表。
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-but-last (lst)
+    (if (atom (cddr lst))
+        lst
+      (fit-but-last (cdr lst))))
+#+END_SRC
+
+3. Find the N'th element of a list.
+查找列表中的第 N 个元素。
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-element-at (lst n)
+    (if (= n 1)
+        (car lst)
+      (fit-element-at (cdr lst) (- n 1))))
+#+END_SRC
+
+4. Find the number of elements of a list.
+查看列表中有多少个元素。
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-length (lst)
+    (if (null lst)
+        0
+      (+ (fit-length (cdr lst)) 1)))
+  (defun fit-length-all (lst)
+    (cond  ((null lst) 0)
+           ((atom (car lst)) (+ (fit-length-all (cdr lst)) 1))
+           (t (+ (fit-length-all (car lst)) (fit-length-all (cdr lst))))))
+
+  (fit-length '(1 2 (3 4 (5 6) (7 8)) 9 (10 11)))
+  > 5
+  (fit-length-all '(1 2 (3 4 (5 6) (7 8)) 9 (10 11)))
+  > 11
+#+END_SRC
+
+5. Reverse a list.
+逆置一个列表
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-reverse (lst)
+    (if (null lst)
+        nil
+      (append (fit-reverse (cdr lst)) (list (car lst)))))
+  (defun fit-reverse-all (lst)
+    (cond ((null lst) nil)
+          ((atom (car lst))
+           (append (fit-reverse-all (cdr lst)) (list (car lst))))
+          (t (append (cdr lst) (list (fit-reverse-all(car lst)))))))
+
+  (fit-reverse '(1 2 (3 4 (5 6 7)) (8 9)))
+  > ((8 9) (3 4 (5 6 7)) 1 2)
+  (fit-reverse-all '(1 2 (3 4 (5 6 7)) (8 9)))
+  > ((8 9) ((7 6 5) 4 3) 2 1)
+#+END_SRC
+
+6. Find out whether a list is a palindrome.
+
+
