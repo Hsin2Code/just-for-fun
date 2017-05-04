@@ -1,6 +1,6 @@
 * Ninety-Nine Lisp Problems
 ** Working with lists
-1. Find the last box of a list.
+*** P01. Find the last box of a list.
 只含最后一个元素的列表。
 
 #+BEGIN_SRC emacs-lisp
@@ -10,7 +10,7 @@
       (fit-last (cdr lst))))
 #+END_SRC
 
-2. Find the last but one box of a list.
+*** P02. Find the last but one box of a list.
 除最后一个元素外的列表。
 
 #+BEGIN_SRC emacs-lisp
@@ -20,7 +20,7 @@
       (fit-but-last (cdr lst))))
 #+END_SRC
 
-3. Find the N'th element of a list.
+*** P03. Find the N'th element of a list.
 查找列表中的第 N 个元素。
 
 #+BEGIN_SRC emacs-lisp
@@ -30,7 +30,7 @@
       (fit-element-at (cdr lst) (- n 1))))
 #+END_SRC
 
-4. Find the number of elements of a list.
+*** P04. Find the number of elements of a list.
 查看列表中有多少个元素。
 
 #+BEGIN_SRC emacs-lisp
@@ -49,7 +49,7 @@
   > 11
 #+END_SRC
 
-5. Reverse a list.
+*** P05. Reverse a list.
 逆置一个列表
 
 #+BEGIN_SRC emacs-lisp
@@ -69,6 +69,64 @@
   > ((8 9) ((7 6 5) 4 3) 2 1)
 #+END_SRC
 
-6. Find out whether a list is a palindrome.
+*** P06. Find out whether a list is a palindrome.
+断言一个回文列表
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-palindromep (lst)
+    (equal lst (reverse lst)))
+
+  (fit-palindromep '(1 2 3 2 1))
+  > t
+#+END_SRC
+
+*** P07. Flatten a nested list structure.
+扁平化一个嵌套列表结构
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-flatten (lst)
+    (cond ((null lst) nil)
+          ((atom lst) (list lst))
+          (t (append (fit-flatten (car lst)) (fit-flatten (cdr lst))))))
+
+  (fit-flatten '(1 2 (3 (4 5 (6))) (7 8 (9 10) (11 12))))
+  > (1 2 3 4 5 6 7 8 9 10 11 12)
+#+END_SRC
+
+*** P08. Eliminate consecutive duplicates of list elements.
+消除列表中连续的重复元素
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-compress (lst)
+    (labels ((rec (lst acc prev)
+                 (cond ((null lst) acc)
+                       ((equal (car lst) prev) (rec (cdr lst) acc prev))
+                       (t (rec (cdr lst) (append acc (list (car lst))) (car lst))))))
+      (rec lst nil nil)))
+
+  (fit-compress '(1 1 1 2 2 3 4 4 5))
+  > (1 2 3 4 5)
+#+END_SRC
+*** P09. Pack consecutive duplicates of list elements into sub lists.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-collect (lst)
+    (if (null lst)
+        lst
+      (labels ((rec (lst temp acc)
+                    (cond ((null lst) (cons temp acc))
+                          ((null temp) (rec (cdr lst) (list (car lst)) acc))
+                          ((equal (car temp) (car lst)) (rec (cdr lst) (cons (car lst) temp) acc))
+                          (t (rec (cdr lst) (list (car lst)) (cons temp acc))))))
+        (reverse (rec lst nil nil)))))
+
+  (fit-collect '(1 1 1 2 2 3 (4 4) (4 4)))
+  > ((1 1 1) (2 2) (3) ((4 4) (4 4)))
+#+END_SRC
+
+*** P10. Run-length encoding of a list.
+
+
+
 
 
