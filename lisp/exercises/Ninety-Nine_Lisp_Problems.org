@@ -1,6 +1,7 @@
 * Ninety-Nine Lisp Problems
 ** Working with lists
-*** P01. Find the last box of a list.
+列表操作
+*** P01. (*) Find the last box of a list.
 只含最后一个元素的列表。
 
 #+BEGIN_SRC emacs-lisp
@@ -10,7 +11,7 @@
       (fit-last (cdr lst))))
 #+END_SRC
 
-*** P02. Find the last but one box of a list.
+*** P02. (*) Find the last but one box of a list.
 除最后一个元素外的列表。
 
 #+BEGIN_SRC emacs-lisp
@@ -20,8 +21,9 @@
       (fit-but-last (cdr lst))))
 #+END_SRC
 
-*** P03. Find the N'th element of a list.
+*** P03. (*) Find the N'th element of a list.
 查找列表中的第 N 个元素。
+The first element in the list is number 1.
 
 #+BEGIN_SRC emacs-lisp
   (defun fit-element-at (lst n)
@@ -30,7 +32,7 @@
       (fit-element-at (cdr lst) (- n 1))))
 #+END_SRC
 
-*** P04. Find the number of elements of a list.
+*** P04. (*) Find the number of elements of a list.
 查看列表中有多少个元素。
 
 #+BEGIN_SRC emacs-lisp
@@ -49,8 +51,8 @@
   > 11
 #+END_SRC
 
-*** P05. Reverse a list.
-逆置一个列表
+*** P05. (*) Reverse a list.
+逆置一个列表。
 
 #+BEGIN_SRC emacs-lisp
   (defun fit-reverse (lst)
@@ -69,8 +71,9 @@
   > ((8 9) ((7 6 5) 4 3) 2 1)
 #+END_SRC
 
-*** P06. Find out whether a list is a palindrome.
-断言一个回文列表
+*** P06. (*) Find out whether a list is a palindrome.
+断言一个回文列表。
+A palindrome can be read forward or backward; e.g. (x a m a x).
 
 #+BEGIN_SRC emacs-lisp
   (defun fit-palindromep (lst)
@@ -80,8 +83,9 @@
   > t
 #+END_SRC
 
-*** P07. Flatten a nested list structure.
-扁平化一个嵌套列表结构
+*** P07. (**) Flatten a nested list structure.
+扁平化一个嵌套列表结构。
+Transform a list, possibly holding lists as elements into a `flat' list by replacing each list with its elements (recursively).
 
 #+BEGIN_SRC emacs-lisp
   (defun fit-flatten (lst)
@@ -93,8 +97,9 @@
   > (1 2 3 4 5 6 7 8 9 10 11 12)
 #+END_SRC
 
-*** P08. Eliminate consecutive duplicates of list elements.
-消除列表中连续的重复元素
+*** P08. (**) Eliminate consecutive duplicates of list elements.
+消除列表中连续的重复元素。
+If a list contains repeated elements they should be replaced with a single copy of the element. The order of the elements should not be changed.
 
 #+BEGIN_SRC emacs-lisp
   (defun fit-compress (lst)
@@ -107,7 +112,8 @@
   (fit-compress '(1 1 1 2 2 3 4 4 5))
   > (1 2 3 4 5)
 #+END_SRC
-*** P09. Pack consecutive duplicates of list elements into sub lists.
+*** P09. (**) Pack consecutive duplicates of list elements into sub lists.
+If a list contains repeated elements they should be placed in separate sublists.
 
 #+BEGIN_SRC emacs-lisp
   (defun fit-collect (lst)
@@ -124,9 +130,293 @@
   > ((1 1 1) (2 2) (3) ((4 4) (4 4)))
 #+END_SRC
 
-*** P10. Run-length encoding of a list.
+*** P10. (*) Run-length encoding of a list.
+Use the result of problem P09 to implement the so-called run-length encoding data compression method. Consecutive duplicates of elements are encoded as lists (N E) where N is the number of duplicates of the element E.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-general-process (combine fn lst)
+    (labels ((rec (lst acc)
+                  (if (null lst)
+                      acc
+                    (rec (cdr lst) (funcall combine  acc (list (funcall fn (car lst))))))))
+      (rec (fit-collect lst) nil)))
+
+  (fit-general-process #'append #'identity '(1 1 2 2 3 4 4 4 4 5 6))
+  > ((1 1) (2 2) (3) (4 4 4 4) (5) (6))
+
+  (defun fit-encode (lst)
+    (fit-general-process #'append
+                         #'(lambda (sub)
+                             (list (length sub) (car sub)))
+                         lst))
+
+  (fit-encode '(1 1 1 2 2 3 3 3 3))
+  > ((3 1) (2 2) (4 3))
+#+END_SRC
+
+*** P11. (*) Modified run-length encoding.
+Modify the result of problem P10 in such a way that if an element has no duplicates it is simply copied into the result list. Only elements with duplicates are transferred as (N E) lists.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-encode-modified (lst)
+    (fit-general-process #'append
+                         #'(lambda (sub)
+                             (if (= 1 (length sub))
+                                 (car sub)
+                               (list (length sub) (car sub))))
+                         lst))
+  (fit-encode-modified '(a a a b c c c c d e e))
+  > ((3 a) b (4 c) d (2 e))
+#+END_SRC
+
+*** P12. (**) Decode a run-length encoded list.
+Given a run-length code list generated as specified in problem P11. Construct its uncompressed version.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-decode (lst)
+    (labels ((rec (lst)
+                  (cond ((null lst) nil)
+                        ((atom lst) (list lst))
+                        (t (append (rec (car lst)) (rec (cdr lst)))))))
+      (rec (fit-general-process #'append
+                                #'(lambda (elem)
+                                    (let ((e (car elem)))
+                                      (if (atom e)
+                                          (list e)
+                                        (loop for i from 1 to (car e)
+                                              collect (cadr e)))))
+                                lst))))
+
+  (fit-decode '((3 a) (4 b) (5 c) (1 d) e))
+  > (a a a b b b b c c c c c d e)
+#+END_SRC
+
+*** P13 (**) Run-length encoding of a list (direct solution).
+Implement the so-called run-length encoding data compression method directly. I.e. don't explicitly create the sublists containing the duplicates, as in problem P09, but only count them. As in problem P11, simplify the result list by replacing the singleton lists (1 X) by X.
+
+参考 P11。
+
+*** P14 (*) Duplicate the elements of a list.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-dupli (lst)
+    (if (null lst)
+        nil
+      (append (list (car lst) (car lst)) (fit-dupli (cdr lst)))))
+
+  (fit-dupli '(a b c (d d)))
+  > (a a b b c c (d d) (d d))
+#+END_SRC
+
+*** P15 (**) Replicate the elements of a list a given number of times.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-repli (lst n)
+    (mapcan #'(lambda (x)
+                (loop for i from 1 to n
+                      collect x))
+            lst))
+
+  (fit-repli '(a b c) 3)
+  > (a a a b b b c c c)
+#+END_SRC
 
 
+*** P16 (**) Drop every N'th element from a list.
+扔掉列表中的第 N 个元素。
+#+BEGIN_SRC emacs-lisp
+  (defun fit-drop (lst n)
+    (labels ((rec (lst i)
+                  (cond ((null lst) nil)
+                        ((= i n) (rec (cdr lst) 1))
+                        (t (cons (car lst) (rec (cdr lst) (+ i 1)))))))
+      (rec lst 1)))
 
+  (fit-drop '(1 2 3 4 5 6 7) 3)
+  > (1 2 4 5 7)
+#+END_SRC
 
+*** P17 (*) Split a list into two parts; the length of the first part is given.
+Do not use any predefined predicates.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-subseq (lst start end)
+    (labels ((copy (lst len acc)
+                   (if (= len 0)
+                       acc
+                     (copy (cdr lst) (- len 1) (append acc (list (car lst)))))))
+      (copy (nthcdr start lst) (- end start) nil)))
+  (defun fit-split (lst n)
+    (list (fit-subseq lst 0 n) (fit-subseq lst n (length lst))))
+
+  (fit-split '(1 2 3 4 5 6) 2)
+  > ((1 2) (3 4 5 6))
+#+END_SRC
+
+*** P18 (**) Extract a slice from a list.
+切割出一个字串。
+Given two indices, I and K, the slice is the list containing the elements between the I'th and K'th element of the original list (both limits included). Start counting the elements with 1.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-slice (lst start end)
+    (fit-subseq lst (- start 1) end))
+
+  (fit-slice '(1 2 3 4 5 6 7 8) 2 6)
+  > (2 3 4 5 6)
+#+END_SRC
+
+*** P19 (**) Rotate a list N places to the left.
+Hint: Use the predefined functions length and append, as well as the result of problem P17.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-rotate (lst n)
+    (let ((len (length lst)))
+      (if (> n 0)
+          (append (subseq lst n len) (subseq lst 0 n))
+        (append (subseq lst (+ len n) len) (subseq lst 0 (+ len n))))))
+
+  (fit-rotate '(1 2 3 4 5 6) 4)
+  > (5 6 1 2 3 4)
+#+END_SRC
+
+*** P20 (*) Remove the K'th element from a list.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-remove-at (lst n)
+    (if (= n 1)
+        (cdr lst)
+      (cons (car lst) (fit-remove-at (cdr lst) (- n 1)))))
+
+  (fit-remove-at '(a b c d e) 4)
+  > (a b c e)
+#+END_SRC
+
+*** P21 (*) Insert an element at a given position into a list.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-insert-at (elem lst pos)
+    (if (= pos 1)
+        (cons elem lst)
+      (cons (car lst) (fit-insert-at elem (cdr lst) (- pos 1)))))
+
+  (fit-insert-at 'fit '(a b c d) 3)
+  > (a b fit c d)
+#+END_SRC
+
+*** P22 (*) Create a list containing all integers within a given range.
+If first argument is smaller than second, produce a list in decreasing order.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-range (n m)
+    (if (> m n)
+        (loop for i from n to m collect i)
+      (reverse (loop for i from m to n collect i))))
+
+  (fit-range 10 5)
+  > (10 9 8 7 6 5)
+#+END_SRC
+
+*** P23 (**) Extract a given number of randomly selected elements from a list.
+The selected items shall be returned in a list.
+Hint: Use the built-in random number generator and the result of problem P20.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-rnd-select (lst n)
+    (if (= n 0)
+        nil
+      (let ((r (random (length lst))))
+        (cons (nth r lst)
+              (fit-rnd-select (fit-remove-at lst (+ r 1)) (- n 1))))))
+
+  (fit-rnd-select '(1 2 3 4 5 6 7 8) 4)
+  > (2 1 5 6)
+#+END_SRC
+
+*** P24 (*) Lotto: Draw N different random numbers from the set 1..M.
+The selected numbers shall be returned in a list.
+从整数 1 - M 中随机抽出 N 个数组成列表（大乐透抽奖）。
+Hint: Combine the solutions of problems P22 and P23.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-lotto-select (n m)
+    (fit-rnd-select (fit-range 1 m) n))
+
+  (fit-lotto-select 6 49)
+  > (23 1 17 33 21 37)
+#+END_SRC
+
+*** P25 (*) Generate a random permutation of the elements of a list.
+Hint: Use the solution of problem P23.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-rnd-permu (lst)
+    (fit-rnd-select lst (length lst)))
+
+  (fit-rnd-permu (fit-range 1 10))
+  > (9 4 1 5 3 2 8 7 6 10)
+#+END_SRC
+
+*** P26 (**) Generate the combinations of K distinct objects chosen from the N elements of a list
+In how many ways can a committee of 3 be chosen from a group of 12 people? We all know that there are C(12,3) = 220 possibilities (C(N,K) denotes the well-known binomial coefficients). For pure mathematicians, this result may be great. But we want to really generate all the possibilities in a list.
+
+*** P27 (**) Group the elements of a set into disjoint subsets.
+**** a) In how many ways can a group of 9 people work in 3 disjoint subgroups of 2, 3 and 4 persons? Write a function that generates all the possibilities and returns them in a list.
+
+**** b) Generalize the above predicate in a way that we can specify a list of group sizes and the predicate will return a list of groups.
+
+Note that we do not want permutations of the group members; i.e. ((ALDO BEAT) ...) is the same solution as ((BEAT ALDO) ...). However, we make a difference between ((ALDO BEAT) (CARLA DAVID) ...) and ((CARLA DAVID) (ALDO BEAT) ...).
+
+You may find more about this combinatorial problem in a good book on discrete mathematics under the term "multinomial coefficients".
+
+*** P29 (**) Sorting a list of lists according to length of sublists.
+**** a) We suppose that a list contains elements that are lists themselves. The objective is to sort the elements of this list according to their length. E.g. short lists first, longer lists later, or vice versa.
+
+**** b) Again, we suppose that a list contains elements that are lists themselves. But this time the objective is to sort the elements of this list according to their length frequency; i.e., in the default, where sorting is done ascendingly, lists with rare lengths are placed first, others with a more frequent length come later.
+
+Note that in the above example, the first two lists in the result have length 4 and 1, both lengths appear just once. The third and forth list have length 3 which appears twice (there are two list of this length). And finally, the last three lists have length 2. This is the most frequent length.
+
+** Arithmetic
+算法
+*** P31 (**) Determine whether a given integer number is prime.
+判断一个舒适不是素数。
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-primep (num)
+    (let ((n (sqrt num)))
+      (labels ((rec (i)
+                    (if (> i n)
+                        t
+                      (and (not (zerop (mod num i)))
+                           (rec (+ i 1))))))
+        (rec 2))))
+  ;; 求 1 - 1000 之前的素数。
+  (mapcar #'(lambda (x)
+              (list x (fit-primep x)))
+          (fit-range 1 1000))
+#+END_SRC
+*** P32 (**) Determine the greatest common divisor of two positive integer numbers.
+求两个数的最大公约数。
+Use Euclid's algorithm.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-gcd (m n)
+    (if (zerop n)
+        m
+      (fit-gcd n (mod m n))))
+
+  (fit-gcd 48 36)
+  > 12
+#+END_SRC
+
+*** P33 (*) Determine whether two positive integer numbers are coprime.
+判断两个数是否互质。
+Two numbers are coprime if their greatest common divisor equals 1.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-coprime (m n)
+    (= (fit-gcd m n) 1))
+
+  (fit-coprime 3 7)
+  > t
+#+END_SRC
 
