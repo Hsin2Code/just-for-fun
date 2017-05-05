@@ -438,13 +438,14 @@ Example: m = 10: r = 1,3,7,9; thus phi(m) = 4. Note the special case: phi(1) = 1
 #+END_EXAMPLE
 
 #+BEGIN_SRC emacs-lisp
-  (defun fit-totoent-phi (m)
+  (defun fit-totient-phi (m)
     (labels ((rec (i count)
                   (cond ((> i m) count)
                         ((fit-coprime m i) (rec (+ i 1) (+ count 1)))
                         (t (rec (+ i 1) count)))))
       (rec 1 0)))
-  (fit-totoent-phi 49)
+  (fit-totient-phi 49)
+  > 42
 #+END_SRC
 
 Find out what the value of phi(m) is if m is a prime number. Euler's totient function plays an important role in one of the most widely used public key cryptography methods (RSA). In this exercise you should use the most primitive method to calculate this function (there are smarter ways that we shall discuss later).
@@ -452,32 +453,91 @@ Find out what the value of phi(m) is if m is a prime number. Euler's totient fun
 *** P35 (**) Determine the prime factors of a given positive integer.
 Construct a flat list containing the prime factors in ascending order.
 
-
+#+BEGIN_SRC emacs-lisp
+  (defun fit-prime-factors (m)
+    (labels ((rec (left i acc)
+                  (cond ((fit-primep left) (append acc (list left)))
+                        ((zerop (mod left i)) (rec (/ left i) i (append acc (list i))))
+                        (t (rec left (+ i 1) acc)))))
+      (rec m 2 nil)))
+  (fit-prime-factors 315)
+  > (3 3 5 7)
+#+END_SRC
 
 *** P36 (**) Determine the prime factors of a given positive integer (2).
 Construct a list containing the prime factors and their multiplicity.
 
 Hint: The problem is similar to problem P13.
 
+#+BEGIN_SRC emacs-lisp
+  (defun fit-prime-factors-mult (m)
+    (fit-general-process #'append
+                         #'(lambda (sub)
+                             (list (car sub) (length sub)))
+                         (fit-prime-factors m)))
+
+  (fit-prime-factors-mult 315)
+  > ((3 2) (5 1) (7 1))
+#+END_SRC
+
 *** P37 (**) Calculate Euler's totient function phi(m) (improved).
 See problem P34 for the definition of Euler's totient function. If the list of the prime factors of a number m is known in the form of problem P36 then the function phi(m) can be efficiently calculated as follows: Let ((p1 m1) (p2 m2) (p3 m3) ...) be the list of prime factors (and their multiplicities) of a given number m. Then phi(m) can be calculated with the following formula:
 phi(m) = (p1 - 1) * p1 ** (m1 - 1) + (p2 - 1) * p2 ** (m2 - 1) + (p3 - 1) * p3 ** (m3 - 1) + ...
 
+#+BEGIN_SRC emacs-lisp
+  (defun fit-phi (m)
+    (reduce #'* (fit-prime-factors-mult m) :initial-value 1
+            :key #'(lambda (n)
+                     (let ((x (car n))
+                           (y (cadr n)))
+                       (* (- x 1) (expt x (- y 1)))))))
+  (fit-phi 1234)
+  > 616
+#+END_SRC
+
 Note that a ** b stands for the b'th power of a.
 
 *** P38 (*) Compare the two methods of calculating Euler's totient function.
+比较 P34 和 P37 的时间效率。
+
 Use the solutions of problems P34 and P37 to compare the algorithms. Take the number of logical inferences as a measure for efficiency. Try to calculate phi(10090) as an example.
 
 *** P39 (*) A list of prime numbers.
 Given a range of integers by its lower and upper limit, construct a list of all prime numbers in that range.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-range-prime (start end)
+    (mapcan #'(lambda (x)
+                (if (fit-primep x)
+                    (list x)))
+            (fit-range start end)))
+
+  (fit-range-prime 3 20)
+  > (3 5 7 11 13 17 19)
+#+END_SRC
+
 *** P40 (**) Goldbach's conjecture.
+
+哥德巴赫猜想
+
 Goldbach's conjecture says that every positive even number greater than 2 is the sum of two prime numbers. Example: 28 = 5 + 23. It is one of the most famous facts in number theory that has not been proved to be correct in the general case. It has been numerically confirmed up to very large numbers (much larger than we can go with our Prolog system). Write a predicate to find the two prime numbers that sum up to a given even integer.
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-goldbach (num)
+    (mapcan #'(lambda (i)
+                (cond ((and (fit-primep i) (fit-primep (- num i)))
+                       (list (list i (- num i))))
+                      (t nil)))
+            (fit-range-prime 1 (/ num 2))))
+
+  (fit-goldbach 100)
+  > ((3 97) (11 89) (17 83) (29 71) (41 59) (47 53))
+#+END_SRC
 
 *** P41 (**) A list of Goldbach compositions.
 Given a range of integers by its lower and upper limit, print a list of all even numbers and their Goldbach composition.
 
 In most cases, if an even number is written as the sum of two prime numbers, one of them is very small. Very rarely, the primes are both bigger than say 50. Try to find out how many such cases there are in the range 2..3000.
-
 
 ** Logic and Codes
 *** P46 (**) Truth tables for logical expressions.
@@ -485,4 +545,52 @@ Define predicates and/2, or/2, nand/2, nor/2, xor/2, impl/2 and equ/2 (for logic
 A logical expression in two variables can then be written in prefix notation, as in the following example: and(or(A,B),nand(A,B)).
 
 Now, write a predicate table/3 which prints the truth table of a given logical expression in two variables.
+
+
+*** P49 (**) Gray code.
+格雷码。
+
+An n-bit Gray code is a sequence of n-bit strings constructed according to certain rules. For example,
+n = 1: C(1) = ['0','1'].
+n = 2: C(2) = ['00','01','11','10'].
+n = 3: C(3) = ['000','001','011','010','110','111','101','100].
+Find out the construction rules and write a predicate with the following specification:
+
+% gray(N,C) :- C is the N-bit Gray code
+
+Can you apply the method of "result caching" in order to make the predicate more efficient, when it is to be used repeatedly?
+
+
+#+BEGIN_SRC emacs-lisp
+  (defun fit-gray-code-gen (n)
+    (labels ((rec (i acc)
+                  (if (= i n)
+                      acc
+                    (let ((cw nil))
+                      (rec (+ i 1)
+                           (mapcan #'(lambda (elem)
+                                       (progn
+                                         (setq cw (not cw))
+                                         (if cw
+                                             (list (concatenate 'string elem "0")
+                                                   (concatenate 'string elem "1"))
+                                           (list (concatenate 'string elem "1")
+                                                 (concatenate 'string elem "0")))))
+                                           acc))))))
+      (rec 1 (list "0" "1"))))
+
+  (fit-gray-code-gen 3)
+  > ("000" "001" "011" "010" "110" "111" "101" "100")
+#+END_SRC
+
+
+*** P50 (***) Huffman code.
+霍夫曼编码。
+
+First of all, consult a good book on discrete mathematics or algorithms for a detailed description of Huffman codes!
+
+We suppose a set of symbols with their frequencies, given as a list of fr(S,F) terms. Example: [fr(a,45),fr(b,13),fr(c,12),fr(d,16),fr(e,9),fr(f,5)]. Our objective is to construct a list hc(S,C) terms, where C is the Huffman code word for the symbol S. In our example, the result could be Hs = [hc(a,'0'), hc(b,'101'), hc(c,'100'), hc(d,'111'), hc(e,'1101'), hc(f,'1100')] [hc(a,'01'),...etc.]. The task shall be performed by the predicate huffman/2 defined as follows: 
+
+% huffman(Fs,Hs) :- Hs is the Huffman code table for the frequency table Fs
+
 
