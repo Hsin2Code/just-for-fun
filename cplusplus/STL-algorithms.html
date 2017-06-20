@@ -1,0 +1,1796 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2017-06-20 二 17:35 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title></title>
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="hsin" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  /*]]>*/-->
+</style>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgheadline64">1. 算法（algorithms）</a>
+<ul>
+<li><a href="#orgheadline7">1.1. 数值算法</a>
+<ul>
+<li><a href="#orgheadline1">1.1.1. accumulate</a></li>
+<li><a href="#orgheadline2">1.1.2. adjacent<sub>difference</sub></a></li>
+<li><a href="#orgheadline3">1.1.3. inner<sub>product</sub></a></li>
+<li><a href="#orgheadline4">1.1.4. partial<sub>sum</sub></a></li>
+<li><a href="#orgheadline5">1.1.5. power *</a></li>
+<li><a href="#orgheadline6">1.1.6. itoa *</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline19">1.2. 基本算法</a>
+<ul>
+<li><a href="#orgheadline8">1.2.1. equal</a></li>
+<li><a href="#orgheadline9">1.2.2. fill</a></li>
+<li><a href="#orgheadline10">1.2.3. fill<sub>n</sub></a></li>
+<li><a href="#orgheadline11">1.2.4. iter<sub>swap</sub></a></li>
+<li><a href="#orgheadline12">1.2.5. lexicographical<sub>compare</sub></a></li>
+<li><a href="#orgheadline13">1.2.6. max</a></li>
+<li><a href="#orgheadline14">1.2.7. min</a></li>
+<li><a href="#orgheadline15">1.2.8. mismatch</a></li>
+<li><a href="#orgheadline16">1.2.9. swap</a></li>
+<li><a href="#orgheadline17">1.2.10. copy &#x2013;强化效率无所不用其极</a></li>
+<li><a href="#orgheadline18">1.2.11. copy<sub>backward</sub> &#x2013; 参照 copy</a></li>
+</ul>
+</li>
+<li><a href="#orgheadline24">1.3. set 相关算法</a>
+<ul>
+<li><a href="#orgheadline20">1.3.1. set<sub>union</sub></a></li>
+<li><a href="#orgheadline21">1.3.2. set<sub>intersection</sub></a></li>
+<li><a href="#orgheadline22">1.3.3. set<sub>difference</sub></a></li>
+<li><a href="#orgheadline23">1.3.4. set<sub>symmetric</sub><sub>difference</sub></a></li>
+</ul>
+</li>
+<li><a href="#orgheadline29">1.4. heap 相关算法</a>
+<ul>
+<li><a href="#orgheadline25">1.4.1. make<sub>heap</sub></a></li>
+<li><a href="#orgheadline26">1.4.2. pop<sub>heap</sub></a></li>
+<li><a href="#orgheadline27">1.4.3. push<sub>heap</sub></a></li>
+<li><a href="#orgheadline28">1.4.4. sort<sub>heap</sub></a></li>
+</ul>
+</li>
+<li><a href="#orgheadline63">1.5. 其他算法</a>
+<ul>
+<li><a href="#orgheadline30">1.5.1. adjacent<sub>find</sub></a></li>
+<li><a href="#orgheadline31">1.5.2. count</a></li>
+<li><a href="#orgheadline32">1.5.3. count<sub>if</sub></a></li>
+<li><a href="#orgheadline33">1.5.4. find 参照 count</a></li>
+<li><a href="#orgheadline34">1.5.5. find<sub>if</sub> 参照 count<sub>if</sub></a></li>
+<li><a href="#orgheadline35">1.5.6. find<sub>end</sub></a></li>
+<li><a href="#orgheadline36">1.5.7. find<sub>first</sub><sub>of</sub> 参照 find<sub>end</sub></a></li>
+<li><a href="#orgheadline37">1.5.8. for<sub>each</sub></a></li>
+<li><a href="#orgheadline38">1.5.9. generate</a></li>
+<li><a href="#orgheadline39">1.5.10. generate<sub>n</sub></a></li>
+<li><a href="#orgheadline40">1.5.11. includes (应用于有序区间)</a></li>
+<li><a href="#orgheadline41">1.5.12. max<sub>element</sub></a></li>
+<li><a href="#orgheadline42">1.5.13. min<sub>element</sub> &#x2013; 参照 max<sub>element</sub></a></li>
+<li><a href="#orgheadline43">1.5.14. merge (应用于有序空间)</a></li>
+<li><a href="#orgheadline44">1.5.15. partition</a></li>
+<li><a href="#orgheadline45">1.5.16. remove 移除（但不删除）</a></li>
+<li><a href="#orgheadline46">1.5.17. remove<sub>copy</sub></a></li>
+<li><a href="#orgheadline47">1.5.18. remove<sub>if</sub> &#x2013; 参照 remove</a></li>
+<li><a href="#orgheadline48">1.5.19. remove<sub>copy</sub><sub>if</sub> &#x2013; 参照 remove<sub>copy</sub></a></li>
+<li><a href="#orgheadline49">1.5.20. replace</a></li>
+<li><a href="#orgheadline50">1.5.21. replace<sub>copy</sub></a></li>
+<li><a href="#orgheadline51">1.5.22. replace<sub>if</sub> &#x2013; 参照 replace</a></li>
+<li><a href="#orgheadline52">1.5.23. replace<sub>copy</sub><sub>if</sub> &#x2013; 参照 replace<sub>copy</sub></a></li>
+<li><a href="#orgheadline53">1.5.24. reverse</a></li>
+<li><a href="#orgheadline54">1.5.25. reverse<sub>copy</sub></a></li>
+<li><a href="#orgheadline55">1.5.26. rotate</a></li>
+<li><a href="#orgheadline56">1.5.27. rotate<sub>copy</sub></a></li>
+<li><a href="#orgheadline57">1.5.28. search</a></li>
+<li><a href="#orgheadline58">1.5.29. search<sub>n</sub></a></li>
+<li><a href="#orgheadline59">1.5.30. swap<sub>ranges</sub></a></li>
+<li><a href="#orgheadline60">1.5.31. transform</a></li>
+<li><a href="#orgheadline61">1.5.32. unique</a></li>
+<li><a href="#orgheadline62">1.5.33. unique<sub>copy</sub></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-orgheadline64" class="outline-2">
+<h2 id="orgheadline64"><span class="section-number-2">1</span> 算法（algorithms）</h2>
+<div class="outline-text-2" id="text-1">
+</div><div id="outline-container-orgheadline7" class="outline-3">
+<h3 id="orgheadline7"><span class="section-number-3">1.1</span> 数值算法</h3>
+<div class="outline-text-3" id="text-1-1">
+</div><div id="outline-container-orgheadline1" class="outline-4">
+<h4 id="orgheadline1"><span class="section-number-4">1.1.1</span> accumulate</h4>
+<div class="outline-text-4" id="text-1-1-1">
+<p>
+accumulate用来计算init和[first, last)内所有元素的总和。
+result = sum(#first, #last)
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">T</span> <span style="color: #0000ff; font-weight: bold;">accumulate</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">init</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span> ; first != last; ++first<span style="color: #7388d6;">)</span>
+        init = init + *first;
+    <span style="color: #00ffff; font-weight: bold;">return</span> init;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>,<span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BinaryOperation</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">T</span> <span style="color: #0000ff; font-weight: bold;">accumulate</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">init</span>, <span style="color: #00ff00;">BinaryOperation</span> <span style="color: #ffff00;">binary_op</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span> ; first != last; ++first<span style="color: #7388d6;">)</span>
+        init = binary_op<span style="color: #7388d6;">(</span>init, *first<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> init;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline2" class="outline-4">
+<h4 id="orgheadline2"><span class="section-number-4">1.1.2</span> adjacent<sub>difference</sub></h4>
+<div class="outline-text-4" id="text-1-1-2">
+<p>
+#n = #n - #n-1
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">adjacent_difference</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                                   <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>first == last<span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> result;
+    *result = *first;
+    <span style="color: #00ffff; font-weight: bold;">return</span> __adjacent_difference<span style="color: #7388d6;">(</span>first, last, result, value_type<span style="color: #909183;">(</span>first<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>,<span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">__adjacent_difference</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                                     <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span>, <span style="color: #00ff00;">T</span>*<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">value</span> = *first;
+    <span style="color: #00ffff; font-weight: bold;">while</span><span style="color: #7388d6;">(</span>++first != last<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">tmp</span> = *first;
+        *++result = tmp - value;
+        value = tmp;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> ++result;
+<span style="color: #707183;">}</span>
+
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BinaryOperation</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">adjacent_difference</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                                   <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span>, <span style="color: #00ff00;">BinaryOperation</span> <span style="color: #ffff00;">binary_op</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>first == last<span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> result;
+    *result = *first;
+    <span style="color: #00ffff; font-weight: bold;">return</span> __adjacent_difference<span style="color: #7388d6;">(</span>first, last, result, value_type<span style="color: #909183;">(</span>first<span style="color: #909183;">)</span>,
+                                 binary_op<span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>,<span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">__adjacent_difference</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                                     <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span>, <span style="color: #00ff00;">T</span>*, <span style="color: #00ff00;">BinaryOperation</span> <span style="color: #ffff00;">binary_op</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">value</span> = *first;
+    <span style="color: #00ffff; font-weight: bold;">while</span><span style="color: #7388d6;">(</span>++first != last<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">tmp</span> = *first;
+        *++result = binary_op<span style="color: #909183;">(</span>tmp,value<span style="color: #909183;">)</span>;
+        value = tmp;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> ++result;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline3" class="outline-4">
+<h4 id="orgheadline3"><span class="section-number-4">1.1.3</span> inner<sub>product</sub></h4>
+<div class="outline-text-4" id="text-1-1-3">
+<p>
+init += n1 * n2
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator2</span>,<span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">T</span> <span style="color: #0000ff; font-weight: bold;">inner_product</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last1</span>,
+                <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">init</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first1 != last1; ++first1,++first2<span style="color: #7388d6;">)</span>
+        init = init + <span style="color: #7388d6;">(</span>*first1 * *first2<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> init;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator2</span>,<span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span>,
+         <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BinaryOperation1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BinaryOperation2</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">T</span> <span style="color: #0000ff; font-weight: bold;">inner_product</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last1</span>,
+                <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">init</span>, <span style="color: #00ff00;">BinaryOperation1</span> <span style="color: #ffff00;">binary_op1</span>,
+                <span style="color: #00ff00;">BinaryOperation2</span> <span style="color: #ffff00;">binary_op2</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first1 != last1; ++first1,++first2<span style="color: #7388d6;">)</span>
+        init = binary_op1<span style="color: #7388d6;">(</span>init, binary_op2<span style="color: #909183;">(</span>*first1, *first2<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> init;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline4" class="outline-4">
+<h4 id="orgheadline4"><span class="section-number-4">1.1.4</span> partial<sub>sum</sub></h4>
+<div class="outline-text-4" id="text-1-1-4">
+<p>
+#n = sum(#first, #n)
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">partial_sum</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                           <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>first == last<span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> result;
+    *result = *first;
+    <span style="color: #00ffff; font-weight: bold;">return</span> __partial_sum<span style="color: #7388d6;">(</span>first, last, result, value_type<span style="color: #909183;">(</span>first<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>,<span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">__partial_sum</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                             <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span>, <span style="color: #00ff00;">T</span>*<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">value</span> = *first;
+    <span style="color: #00ffff; font-weight: bold;">while</span><span style="color: #7388d6;">(</span>++first != last<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        value = value + *first;
+        *++result = value;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> ++result;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BinaryOperation</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">partial_sum</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                           <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span>, <span style="color: #00ff00;">BinaryOperation</span> <span style="color: #ffff00;">binary_op</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>first == last<span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> result;
+    *result = *first;
+    <span style="color: #00ffff; font-weight: bold;">return</span> __partial_sum<span style="color: #7388d6;">(</span>first, last, result, value_type<span style="color: #909183;">(</span>first<span style="color: #909183;">)</span>, binary_op<span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>,<span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">__partial_sum</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                             <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span>, <span style="color: #00ff00;">T</span>*,
+                             <span style="color: #00ff00;">BinaryOperation</span> <span style="color: #ffff00;">binary_op</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">value</span> = *first;
+    <span style="color: #00ffff; font-weight: bold;">while</span><span style="color: #7388d6;">(</span>++first != last<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        value = binary_op<span style="color: #909183;">(</span>value, *first<span style="color: #909183;">)</span>;
+        *++result = value;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> ++result;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline5" class="outline-4">
+<h4 id="orgheadline5"><span class="section-number-4">1.1.5</span> power *</h4>
+<div class="outline-text-4" id="text-1-1-5">
+<div class="org-src-container">
+
+<pre class="src src-c++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Interger</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">T</span> <span style="color: #0000ff; font-weight: bold;">power</span><span style="color: #707183;">(</span><span style="color: #00ff00;">T</span> <span style="color: #ffff00;">x</span>, <span style="color: #00ff00;">Interger</span> <span style="color: #ffff00;">n</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> power<span style="color: #7388d6;">(</span>x, n, <span style="color: #00ff00;">multiplies</span><span style="color: #909183;">&lt;</span><span style="color: #00ff00;">T</span><span style="color: #909183;">&gt;()</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Interger</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">MonoidOperation</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">T</span> <span style="color: #0000ff; font-weight: bold;">power</span><span style="color: #707183;">(</span><span style="color: #00ff00;">T</span> <span style="color: #ffff00;">x</span>, <span style="color: #00ff00;">Interger</span> <span style="color: #ffff00;">n</span>, <span style="color: #00ff00;">MonoidOperation</span> <span style="color: #ffff00;">op</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>n == <span style="color: #ff00ff;">0</span><span style="color: #7388d6;">)</span>
+        <span style="color: #00ffff; font-weight: bold;">return</span> identity_element<span style="color: #7388d6;">(</span>op<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#30830;&#23450; x&#30340;m&#27425; &#20540;&#65292; &#20026;&#20102;&#19981;&#37325;&#22797;&#35745;&#31639;&#65292;&#30475;n&#26159;&#21542;&#33021;&#34987; x&#30340;m&#27425; &#25972;&#38500;&#65292;&#36890;&#36807;&#31227;&#20301;&#20415;&#21487;&#30830;&#23450;</span>
+        <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #909183;">(</span><span style="color: #709870;">(</span><span style="color: #00ff00;">n</span> &amp; <span style="color: #ff00ff;">1</span><span style="color: #709870;">)</span> == <span style="color: #ff00ff;">0</span><span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+            n &gt;&gt;= <span style="color: #ff00ff;">1</span>;
+            x = op<span style="color: #709870;">(</span>x, x<span style="color: #709870;">)</span>;
+        <span style="color: #909183;">}</span>
+        <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#20063;&#26159;&#20026;&#20102;&#19981;&#37325;&#22797;&#35745;&#31639;&#65292;&#25226;x&#30340;n&#27425;&#25286;&#20998;&#25104;2^m+2^(m-1)+2^(m-2)+...+1</span>
+        <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#20808;&#31639;&#20986;1&#27425;&#65292;&#20877;&#31639;&#20986;2&#27425;&#65292;&#20877;&#31639;&#20986;4&#27425;&#12290;&#21482;&#35201;&#23545;&#24212;&#20301;&#32622;&#19978;&#26377;&#25968;&#65292;&#21152;&#36827;reslt&#23601;&#34892;&#65292;</span>
+        <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#27809;&#26377;&#25968;&#21017;&#19981;&#21152;&#12290;</span>
+        <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">result</span> = x;
+        n &gt;&gt;= <span style="color: #ff00ff;">1</span>;
+        <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #909183;">(</span>n != <span style="color: #ff00ff;">0</span><span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+            x = op<span style="color: #709870;">(</span>x, x<span style="color: #709870;">)</span>;
+            <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #709870;">(</span><span style="color: #907373;">(</span><span style="color: #00ff00;">n</span> &amp; <span style="color: #ff00ff;">1</span><span style="color: #907373;">)</span> != <span style="color: #ff00ff;">0</span><span style="color: #709870;">)</span>
+                result = op<span style="color: #709870;">(</span>result, x<span style="color: #709870;">)</span>;
+            n &gt;&gt;= <span style="color: #ff00ff;">1</span>;
+        <span style="color: #909183;">}</span>
+        <span style="color: #00ffff; font-weight: bold;">return</span> result;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-4">
+<h4 id="orgheadline6"><span class="section-number-4">1.1.6</span> itoa *</h4>
+<div class="outline-text-4" id="text-1-1-6">
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">itoa</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">value</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">while</span><span style="color: #7388d6;">(</span>first != last<span style="color: #7388d6;">)</span>
+        *first++ = value++;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline19" class="outline-3">
+<h3 id="orgheadline19"><span class="section-number-3">1.2</span> 基本算法</h3>
+<div class="outline-text-3" id="text-1-2">
+</div><div id="outline-container-orgheadline8" class="outline-4">
+<h4 id="orgheadline8"><span class="section-number-4">1.2.1</span> equal</h4>
+<div class="outline-text-4" id="text-1-2-1">
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator2</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">bool</span> <span style="color: #0000ff; font-weight: bold;">equal</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">last1</span>,
+                  <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">first2</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span> ; first1 != last1; ++first1,++first2<span style="color: #7388d6;">)</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>*first1 != *first2<span style="color: #7388d6;">)</span>
+            <span style="color: #00ffff; font-weight: bold;">return</span> <span style="color: #ff00ff;">false</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> <span style="color: #ff00ff;">true</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator2</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BinaryPredicate</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">bool</span> <span style="color: #0000ff; font-weight: bold;">equal</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">last1</span>,
+                  <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">BinaryPredicate</span> <span style="color: #ffff00;">binary_op</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span> ; first != last1; ++first1,++first2<span style="color: #7388d6;">)</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>!binary_op<span style="color: #909183;">(</span>*first1,*first2<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>
+            <span style="color: #00ffff; font-weight: bold;">return</span> <span style="color: #ff00ff;">false</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> <span style="color: #ff00ff;">true</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline9" class="outline-4">
+<h4 id="orgheadline9"><span class="section-number-4">1.2.2</span> fill</h4>
+<div class="outline-text-4" id="text-1-2-2">
+<p>
+将[first, last)内的元素改填新值。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">fill</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">value</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first != last; ++first<span style="color: #7388d6;">)</span>
+        *first = value;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline10" class="outline-4">
+<h4 id="orgheadline10"><span class="section-number-4">1.2.3</span> fill<sub>n</sub></h4>
+<div class="outline-text-4" id="text-1-2-3">
+<p>
+将[first, first + n)内的元素改填新值。
+避免书写越界可利用inserter()产生一个具有插入（insert）而非覆写（overwrite）能力的迭代器
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Size</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">fill_n</span><span style="color: #707183;">(</span><span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">Size</span> <span style="color: #ffff00;">n</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">value</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; n &gt;<span style="color: #ff00ff;">0</span> ; --n, ++first<span style="color: #7388d6;">)</span>
+        *first = value;
+    <span style="color: #00ffff; font-weight: bold;">return</span> first;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline11" class="outline-4">
+<h4 id="orgheadline11"><span class="section-number-4">1.2.4</span> iter<sub>swap</sub></h4>
+<div class="outline-text-4" id="text-1-2-4">
+<p>
+将两个ForwardIterator所指向的对象对调。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator2</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">iter_swap</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">a</span>, <span style="color: #00ff00;">ForwardIterator2</span> <span style="color: #ffff00;">b</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    __iter_swap<span style="color: #7388d6;">(</span>a, b, value_type<span style="color: #909183;">(</span>a<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator2</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">__iter_swap</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">a</span>, <span style="color: #00ff00;">ForwardIterator2</span> <span style="color: #ffff00;">b</span>, <span style="color: #00ff00;">T</span>*<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">tmp</span> = *a;
+    *a = *b;
+    *b = tmp;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline12" class="outline-4">
+<h4 id="orgheadline12"><span class="section-number-4">1.2.5</span> lexicographical<sub>compare</sub></h4>
+<div class="outline-text-4" id="text-1-2-5">
+<p>
+以“字典排列方式”对两个序列[first1, last1)和[first2, last2)进行比较。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator2</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">bool</span> <span style="color: #0000ff; font-weight: bold;">lexicographical_compare</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">last1</span>,
+                             <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">last2</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first1 != last1 &amp;&amp; first2 != last2; ++first1, ++first2<span style="color: #7388d6;">)</span>
+    <span style="color: #7388d6;">{</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>*first1 &lt; *first2<span style="color: #909183;">)</span>
+            <span style="color: #00ffff; font-weight: bold;">return</span> <span style="color: #ff00ff;">true</span>;
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>*first2 &lt; *first1<span style="color: #909183;">)</span>
+            <span style="color: #00ffff; font-weight: bold;">return</span> <span style="color: #ff00ff;">false</span>
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> first1 == last1 &amp;&amp; first2 != last2;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator2</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Compare</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">bool</span> <span style="color: #0000ff; font-weight: bold;">lexicographical_compare</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">last1</span>,
+                             <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">last2</span>,
+                             <span style="color: #00ff00;">Compare</span> <span style="color: #ffff00;">comp</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first1 != last1 &amp;&amp; first2 != last2; ++first1, ++first2<span style="color: #7388d6;">)</span>
+    <span style="color: #7388d6;">{</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>comp<span style="color: #709870;">(</span>*first1, *first2<span style="color: #709870;">)</span><span style="color: #909183;">)</span>
+            <span style="color: #00ffff; font-weight: bold;">return</span> <span style="color: #ff00ff;">true</span>;
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>comp<span style="color: #709870;">(</span>*first2, *first1<span style="color: #709870;">)</span><span style="color: #909183;">)</span>
+            <span style="color: #00ffff; font-weight: bold;">return</span> <span style="color: #ff00ff;">false</span>
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> first1 == last1 &amp;&amp; first2 != last2;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p>
+为了增进效率，SGI还设计了一个特化版本用于原生指针 const unsigned char *:
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">bool</span>
+<span style="color: #0000ff; font-weight: bold;">lexicographical_compare</span><span style="color: #707183;">(</span><span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">unsigned</span> <span style="color: #00ff00;">char</span>* <span style="color: #ffff00;">first1</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">unsigned</span> <span style="color: #00ff00;">char</span>* <span style="color: #ffff00;">last1</span>,
+                        <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">unsigned</span> <span style="color: #00ff00;">char</span>* <span style="color: #ffff00;">first2</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">unsigned</span> <span style="color: #00ff00;">char</span>* <span style="color: #ffff00;">last2</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">size_t</span> <span style="color: #ffff00;">len1</span> = last1 - first1;
+    <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">size_t</span> <span style="color: #ffff00;">len2</span> = last2 - first2;
+    <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">int</span> <span style="color: #ffff00;">result</span> = memcmp<span style="color: #7388d6;">(</span>first1, first2, min<span style="color: #909183;">(</span>len1, len2<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> result != <span style="color: #ff00ff;">0</span> ? result &lt; <span style="color: #ff00ff;">0</span> : len1 &lt; len2;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline13" class="outline-4">
+<h4 id="orgheadline13"><span class="section-number-4">1.2.6</span> max</h4>
+<div class="outline-text-4" id="text-1-2-6">
+<p>
+取两个对象中的较大值。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #0000ff; font-weight: bold;">max</span><span style="color: #707183;">(</span><span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">a</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">b</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> a &lt; b ? b : a;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Compare</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #0000ff; font-weight: bold;">max</span><span style="color: #707183;">(</span><span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">a</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">b</span>, <span style="color: #00ff00;">Compare</span> <span style="color: #ffff00;">comp</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> comp<span style="color: #7388d6;">(</span>a, b<span style="color: #7388d6;">)</span> ? b : a;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline14" class="outline-4">
+<h4 id="orgheadline14"><span class="section-number-4">1.2.7</span> min</h4>
+<div class="outline-text-4" id="text-1-2-7">
+<p>
+取两个对象中的较小值。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #0000ff; font-weight: bold;">min</span><span style="color: #707183;">(</span><span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">a</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">b</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> b &lt; a ? b : a;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Compare</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #0000ff; font-weight: bold;">min</span><span style="color: #707183;">(</span><span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">a</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">b</span>, <span style="color: #00ff00;">Compare</span> <span style="color: #ffff00;">comp</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> comp<span style="color: #7388d6;">(</span>b,a<span style="color: #7388d6;">)</span> ? b : a;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline15" class="outline-4">
+<h4 id="orgheadline15"><span class="section-number-4">1.2.8</span> mismatch</h4>
+<div class="outline-text-4" id="text-1-2-8">
+<p>
+用来平行比较两个序列，指出两者之间的第一个不匹配点。返回一对迭代器（pair），分别指向两序列中的不匹配点。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator2</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">pair</span><span style="color: #707183;">&lt;</span><span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ff00;">InputIterator2</span><span style="color: #707183;">&gt;</span> <span style="color: #0000ff; font-weight: bold;">mismatch</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">last1</span>,
+                                              <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">first2</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>first != last1 &amp;&amp; *first1 == *first2<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        ++first1;
+        ++first2;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> <span style="color: #00ff00;">pair</span><span style="color: #7388d6;">&lt;</span>InputIterator1, InputIterator2<span style="color: #7388d6;">&gt;(</span>first1, first2<span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator2</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BinaryPredicate</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">pair</span><span style="color: #707183;">&lt;</span><span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ff00;">InputIterator2</span><span style="color: #707183;">&gt;</span> <span style="color: #0000ff; font-weight: bold;">mismatch</span><span style="color: #707183;">(</span> <span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">first1</span>,<span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">last1</span>,
+                                               <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">BinaryPredicate</span> <span style="color: #ffff00;">binary_pred</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>first1 != last1 &amp;&amp; binary_pred<span style="color: #909183;">(</span>*first1, *first2<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        ++first1;
+        ++first2;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> <span style="color: #00ff00;">pair</span><span style="color: #7388d6;">&lt;</span>InputIterator1, InputIterator2<span style="color: #7388d6;">&gt;(</span>first1, first2<span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline16" class="outline-4">
+<h4 id="orgheadline16"><span class="section-number-4">1.2.9</span> swap</h4>
+<div class="outline-text-4" id="text-1-2-9">
+<p>
+用来交换（对调）两个对象的内容。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">swap</span><span style="color: #707183;">(</span><span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">a</span>, <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">b</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">tmp</span> = a;
+    a = b;
+    b = tmp;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline17" class="outline-4">
+<h4 id="orgheadline17"><span class="section-number-4">1.2.10</span> copy &#x2013;强化效率无所不用其极</h4>
+<div class="outline-text-4" id="text-1-2-10">
+<p>
+泛化
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">copy</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                           <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> <span style="color: #00ff00;">__copy_dispatch</span><span style="color: #7388d6;">&lt;</span>InputIterator,OutputIterator<span style="color: #7388d6;">&gt;()</span>
+        <span style="color: #7388d6;">(</span>first, last, result<span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ff00;">char</span> <span style="color: #ffff00;">OutputIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">struct</span> <span style="color: #00ff00;">__copy_dispatch</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ff00;">OutputIterator</span> <span style="color: #00ffff; font-weight: bold;">operator</span><span style="color: #7388d6; font-weight: bold;">()</span><span style="color: #7388d6;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                              <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#20256;&#20837;&#19968;&#20010;&#36845;&#20195;&#22120;&#26631;&#31614;&#65292;&#21306;&#20998;&#26159;&#21542;&#26159;&#38543;&#26426;&#36845;&#20195;&#22120;</span>
+        <span style="color: #00ffff; font-weight: bold;">return</span> __copy<span style="color: #909183;">(</span>first, last, result, <span style="color: #00ff00;">iterator_category</span><span style="color: #709870;">(</span><span style="color: #ffff00;">first</span><span style="color: #709870;">)</span><span style="color: #909183;">)</span>;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
+<span style="color: #ff0000;">// </span><span style="color: #ff0000;">&#25351;&#38024;&#29305;&#21270;</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">struct</span> <span style="color: #00ff00;">__copy_dispatch</span><span style="color: #707183;">&lt;</span><span style="color: #00ff00;">T</span>*, <span style="color: #00ff00;">T</span>*<span style="color: #707183;">&gt;</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ff00;">T</span>* <span style="color: #00ffff; font-weight: bold;">operator</span><span style="color: #7388d6; font-weight: bold;">()</span><span style="color: #7388d6;">(</span><span style="color: #00ff00;">T</span>* <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">T</span>* <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">T</span>* <span style="color: #ffff00;">result</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#21028;&#26029; &#26159;&#21542; &#27809;&#26377; assignment_operator&#37325;&#36733;&#25805;&#20316;</span>
+        <span style="color: #00ffff; font-weight: bold;">typedef</span> <span style="color: #00ffff; font-weight: bold;">typename</span> <span style="color: #ff00ff;">__type_traits</span><span style="color: #909183;">&lt;</span><span style="color: #00ff00;">T</span><span style="color: #909183;">&gt;</span>::<span style="color: #00ff00;">has_trivial_assignment_operator</span> <span style="color: #00ff00;">t</span>;
+        <span style="color: #00ffff; font-weight: bold;">return</span> __copy_t<span style="color: #909183;">(</span>first, last, result, <span style="color: #00ff00;">t</span><span style="color: #709870;">()</span><span style="color: #909183;">)</span>;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
+<span style="color: #ff0000;">// </span><span style="color: #ff0000;">const&#25351;&#38024;&#29305;&#21270; </span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">struct</span> <span style="color: #00ff00;">__copy_dispatch</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>*, <span style="color: #00ff00;">T</span>*<span style="color: #707183;">&gt;</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ff00;">T</span>* <span style="color: #00ffff; font-weight: bold;">operator</span><span style="color: #7388d6; font-weight: bold;">()</span><span style="color: #7388d6;">(</span><span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>* <span style="color: #ffff00;">first</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>* <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">T</span>* <span style="color: #ffff00;">result</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ffff; font-weight: bold;">typedef</span> <span style="color: #00ffff; font-weight: bold;">typename</span> <span style="color: #ff00ff;">__type_traits</span><span style="color: #909183;">&lt;</span><span style="color: #00ff00;">T</span><span style="color: #909183;">&gt;</span>:: <span style="color: #00ff00;">has_trivial_assignment_operator</span> <span style="color: #00ff00;">t</span>;
+        <span style="color: #00ffff; font-weight: bold;">return</span> __copy_t<span style="color: #909183;">(</span>first, last, result, <span style="color: #00ff00;">t</span><span style="color: #709870;">()</span><span style="color: #909183;">)</span>;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>;
+<span style="color: #ff0000;">//</span><span style="color: #ff0000;">input&#26159;&#22522;&#31867;&#65292;&#19981;&#31649;forward &#36824;&#26159;bidi&#36845;&#20195;&#22120;&#37117;&#36208;&#36825;&#36793;</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">__copy</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                             <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span>, input_iterator_tag<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first != last; ++result, ++first<span style="color: #7388d6;">)</span>
+        *result = *first;
+    <span style="color: #00ffff; font-weight: bold;">return</span> result;
+<span style="color: #707183;">}</span>
+<span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#38543;&#26426;&#36845;&#20195;&#22120;&#36208;&#36825;&#36793;</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">RandomAccessIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">__copy</span><span style="color: #707183;">(</span><span style="color: #00ff00;">RandomAccessIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">RandomAccessIterator</span> <span style="color: #ffff00;">last</span>,
+                             <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span>, random_access_iterator_tag<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> __copy_d<span style="color: #7388d6;">(</span>first, last, result, distance_type<span style="color: #909183;">(</span>first<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#30452;&#25509;&#31639;&#20986;&#21306;&#38388;&#22823;&#23567;&#65292;&#26681;&#25454;&#22823;&#23567;&#26469;&#24490;&#29615; &#19981;&#38656;&#35201;&#21028;&#26029;&#36845;&#20195;&#26159;&#21542;&#30456;&#31561;&#65292;&#21487;&#20197;&#26377;&#25928;&#25552;&#21319;&#36895;&#24230;</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">RandomAccessIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Distance</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">OutputIterator</span>
+<span style="color: #0000ff; font-weight: bold;">__copy_d</span><span style="color: #707183;">(</span><span style="color: #00ff00;">RandomAccessIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">RandomAccessIterator</span> <span style="color: #ffff00;">last</span>,
+         <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span>, <span style="color: #00ff00;">Distance</span>*<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span><span style="color: #00ff00;">Distance</span> <span style="color: #ffff00;">n</span> = last - first; n &gt; <span style="color: #ff00ff;">0</span>; --n, ++result, ++first <span style="color: #7388d6;">)</span>
+        *result = *first;
+    <span style="color: #00ffff; font-weight: bold;">return</span> result;
+<span style="color: #707183;">}</span>
+<span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#26159; &#27809;&#26377;assignment_operator&#37325;&#36733;&#25805;&#20316;&#30340;&#35805; &#23601;&#36208;&#36825;&#12290;&#30452;&#25509;&#22797;&#21046;&#20869;&#23384;</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">T</span>* <span style="color: #0000ff; font-weight: bold;">__copy_t</span><span style="color: #707183;">(</span><span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>* <span style="color: #ffff00;">first</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>* <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">T</span>* <span style="color: #ffff00;">result</span>, __true_type<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    memmove<span style="color: #7388d6;">(</span>result, first, <span style="color: #00ffff; font-weight: bold;">sizeof</span><span style="color: #909183;">(</span>T<span style="color: #909183;">)</span> * <span style="color: #909183;">(</span>last - first<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> result + <span style="color: #7388d6;">(</span>last - first<span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#19981;&#26159; &#27809;&#26377;assignment_operator&#37325;&#36733;&#25805;&#20316;(&#20063;&#23601;&#26159;&#26377;&#37325;&#36733;) &#36208;&#36825;&#36793;&#65292;&#35843;&#29992;&#38543;&#26426;&#36845;&#20195;&#22120;&#30340;copy&#26041;&#27861;</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">T</span>* <span style="color: #0000ff; font-weight: bold;">__copy_t</span><span style="color: #707183;">(</span><span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>* <span style="color: #ffff00;">first</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>* <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">T</span>* <span style="color: #ffff00;">result</span>,
+                   __false_type<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> __copy_d<span style="color: #7388d6;">(</span>first, last, result, <span style="color: #909183;">(</span><span style="color: #00ff00;">ptrdiff_t</span>*<span style="color: #909183;">)</span> <span style="color: #ff00ff;">0</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+
+<p>
+特化
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">char</span>* <span style="color: #0000ff; font-weight: bold;">copy</span><span style="color: #707183;">(</span><span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">char</span>* <span style="color: #ffff00;">first</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">char</span>* <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">char</span>* <span style="color: #ffff00;">result</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    memmove<span style="color: #7388d6;">(</span>result, first, last - first<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> result + <span style="color: #7388d6;">(</span>last - first<span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">wchar_t</span>* <span style="color: #0000ff; font-weight: bold;">copy</span><span style="color: #707183;">(</span><span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">wchar_t</span>* <span style="color: #ffff00;">first</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">wchar_t</span>* <span style="color: #ffff00;">last</span>,
+                     <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">wchar_t</span>* <span style="color: #ffff00;">result</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    memmove<span style="color: #7388d6;">(</span>result, first, <span style="color: #00ffff; font-weight: bold;">sizeof</span><span style="color: #909183;">(</span><span style="color: #00ff00;">wchar_t</span><span style="color: #909183;">)</span> * <span style="color: #909183;">(</span>last - first<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> result + <span style="color: #7388d6;">(</span>last - first<span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline18" class="outline-4">
+<h4 id="orgheadline18"><span class="section-number-4">1.2.11</span> copy<sub>backward</sub> &#x2013; 参照 copy</h4>
+<div class="outline-text-4" id="text-1-2-11">
+<p>
+将[first,last)区间内的每一个元素，以逆行的方向复制到以result-1为起点，方向亦为逆行的区间上。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BidirectionalIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BidirectionalIterator2</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">BidirectionalIterator2</span> <span style="color: #0000ff; font-weight: bold;">copy</span><span style="color: #707183;">(</span> <span style="color: #00ff00;">BidirectionalIterator1</span> <span style="color: #ffff00;">first</span>,
+                                    <span style="color: #00ff00;">BidirectionalIterator1</span> <span style="color: #ffff00;">last</span>,
+                                    <span style="color: #00ff00;">BidirectionalIterator2</span> <span style="color: #ffff00;">result</span><span style="color: #707183;">)</span>;
+</pre>
+</div>
+<p>
+copy<sub>backward</sub> 所接受的迭代器必须是BidirectionalTterators, 才能够“倒行逆施”。
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline24" class="outline-3">
+<h3 id="orgheadline24"><span class="section-number-3">1.3</span> set 相关算法</h3>
+<div class="outline-text-3" id="text-1-3">
+<p>
+STL一共提供了四种与set（集合）相关的算法，分别是并集（union）、交集（intersection）、差集（difference）、对称差集（symmetric difference）。
+</p>
+</div>
+
+<div id="outline-container-orgheadline20" class="outline-4">
+<h4 id="orgheadline20"><span class="section-number-4">1.3.1</span> set<sub>union</sub></h4>
+</div>
+
+<div id="outline-container-orgheadline21" class="outline-4">
+<h4 id="orgheadline21"><span class="section-number-4">1.3.2</span> set<sub>intersection</sub></h4>
+</div>
+
+<div id="outline-container-orgheadline22" class="outline-4">
+<h4 id="orgheadline22"><span class="section-number-4">1.3.3</span> set<sub>difference</sub></h4>
+</div>
+
+<div id="outline-container-orgheadline23" class="outline-4">
+<h4 id="orgheadline23"><span class="section-number-4">1.3.4</span> set<sub>symmetric</sub><sub>difference</sub></h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline29" class="outline-3">
+<h3 id="orgheadline29"><span class="section-number-3">1.4</span> heap 相关算法</h3>
+<div class="outline-text-3" id="text-1-4">
+</div><div id="outline-container-orgheadline25" class="outline-4">
+<h4 id="orgheadline25"><span class="section-number-4">1.4.1</span> make<sub>heap</sub></h4>
+</div>
+
+<div id="outline-container-orgheadline26" class="outline-4">
+<h4 id="orgheadline26"><span class="section-number-4">1.4.2</span> pop<sub>heap</sub></h4>
+</div>
+
+<div id="outline-container-orgheadline27" class="outline-4">
+<h4 id="orgheadline27"><span class="section-number-4">1.4.3</span> push<sub>heap</sub></h4>
+</div>
+
+<div id="outline-container-orgheadline28" class="outline-4">
+<h4 id="orgheadline28"><span class="section-number-4">1.4.4</span> sort<sub>heap</sub></h4>
+</div>
+</div>
+
+<div id="outline-container-orgheadline63" class="outline-3">
+<h3 id="orgheadline63"><span class="section-number-3">1.5</span> 其他算法</h3>
+<div class="outline-text-3" id="text-1-5">
+</div><div id="outline-container-orgheadline30" class="outline-4">
+<h4 id="orgheadline30"><span class="section-number-4">1.5.1</span> adjacent<sub>find</sub></h4>
+<div class="outline-text-4" id="text-1-5-1">
+<p>
+找到第一组满足条件的相邻元素。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">ForwardIterator</span> <span style="color: #0000ff; font-weight: bold;">adjacent_find</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">if</span> <span style="color: #7388d6;">(</span>first == last<span style="color: #7388d6;">)</span>
+        <span style="color: #00ffff; font-weight: bold;">return</span> last;
+    <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">next</span> = first;
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>++next != last<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>*first == *next<span style="color: #909183;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> first;
+        first = next;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> last;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">ForwardIterator</span> <span style="color: #0000ff; font-weight: bold;">adjacent_find</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">ForwardIterator</span> last
+                              <span style="color: #00ff00;">BinaryPredicate</span> <span style="color: #ffff00;">binary_op</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">if</span> <span style="color: #7388d6;">(</span>first == last<span style="color: #7388d6;">)</span>
+        <span style="color: #00ffff; font-weight: bold;">return</span> last;
+    <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">next</span> = first;
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>++next != last<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>binary_op<span style="color: #709870;">(</span>*first, *next<span style="color: #709870;">)</span><span style="color: #909183;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> first;
+        first = next;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> last;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline31" class="outline-4">
+<h4 id="orgheadline31"><span class="section-number-4">1.5.2</span> count</h4>
+<div class="outline-text-4" id="text-1-5-2">
+<p>
+运用equality操作符，将[first, last)区间内的每一个元素拿来和指定值value比较，并返回与value相等的元素个数。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">typename</span> <span style="color: #ff00ff;">iterator_traits</span><span style="color: #707183;">&lt;</span><span style="color: #00ff00;">InputIterator</span><span style="color: #707183;">&gt;</span>::<span style="color: #00ff00;">difference_type</span>
+<span style="color: #0000ff; font-weight: bold;">count</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">value</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">typename</span> <span style="color: #ff00ff;">iterator_traits</span><span style="color: #7388d6;">&lt;</span><span style="color: #00ff00;">InputIterator</span><span style="color: #7388d6;">&gt;</span>::<span style="color: #00ff00;">difference_type</span> <span style="color: #ffff00;">n</span> = <span style="color: #ff00ff;">0</span>;
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first != last; ++first<span style="color: #7388d6;">)</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>*first == value<span style="color: #7388d6;">)</span> ++n;
+    <span style="color: #00ffff; font-weight: bold;">return</span> n;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline32" class="outline-4">
+<h4 id="orgheadline32"><span class="section-number-4">1.5.3</span> count<sub>if</sub></h4>
+<div class="outline-text-4" id="text-1-5-3">
+<p>
+将制定操作（一个仿函数）pred实施于[first, last)区间内的每一个元素身上，并将“造成pred之计算结果为true”的所有元素的个数返回。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Predicate</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">typename</span> <span style="color: #ff00ff;">iterator_traits</span><span style="color: #707183;">&lt;</span><span style="color: #00ff00;">InputIterator</span><span style="color: #707183;">&gt;</span>::<span style="color: #00ff00;">difference_type</span>
+<span style="color: #0000ff; font-weight: bold;">count_if</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">Predicate</span> <span style="color: #ffff00;">pred</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">typename</span> <span style="color: #ff00ff;">iterator_traits</span><span style="color: #7388d6;">&lt;</span><span style="color: #00ff00;">InputIterator</span><span style="color: #7388d6;">&gt;</span>::<span style="color: #00ff00;">difference_type</span> <span style="color: #ffff00;">n</span> = <span style="color: #ff00ff;">0</span>;
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first != last; ++first<span style="color: #7388d6;">)</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>pred<span style="color: #909183;">(</span>*first<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span> ++n;
+    <span style="color: #00ffff; font-weight: bold;">return</span> n;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline33" class="outline-4">
+<h4 id="orgheadline33"><span class="section-number-4">1.5.4</span> find 参照 count</h4>
+<div class="outline-text-4" id="text-1-5-4">
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">InputIterator</span> <span style="color: #0000ff; font-weight: bold;">find</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">value</span><span style="color: #707183;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline34" class="outline-4">
+<h4 id="orgheadline34"><span class="section-number-4">1.5.5</span> find<sub>if</sub> 参照 count<sub>if</sub></h4>
+<div class="outline-text-4" id="text-1-5-5">
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Predicate</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">typename</span> <span style="color: #ff00ff;">iterator_traits</span><span style="color: #707183;">&lt;</span><span style="color: #00ff00;">InputIterator</span><span style="color: #707183;">&gt;</span>::<span style="color: #00ff00;">difference_type</span>
+<span style="color: #0000ff; font-weight: bold;">find_if</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">Predicate</span> <span style="color: #ffff00;">pred</span><span style="color: #707183;">)</span>;
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline35" class="outline-4">
+<h4 id="orgheadline35"><span class="section-number-4">1.5.6</span> find<sub>end</sub></h4>
+<div class="outline-text-4" id="text-1-5-6">
+<p>
+在序列一[first1, last1)所涵盖的区间中，查找序列二[first2, last2)的最后一次出现点。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator2</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">ForwardIterator1</span>
+<span style="color: #0000ff; font-weight: bold;">find_end</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">last1</span>,
+         <span style="color: #00ff00;">ForwardIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">ForwardIterator2</span> <span style="color: #ffff00;">last2</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">typedef</span> <span style="color: #00ffff; font-weight: bold;">typename</span> <span style="color: #ff00ff;">iterator_traits</span><span style="color: #7388d6;">&lt;</span><span style="color: #00ff00;">ForwardIterator1</span><span style="color: #7388d6;">&gt;</span>::<span style="color: #00ff00;">iterator_category</span> <span style="color: #00ff00;">category1</span>;
+    <span style="color: #00ffff; font-weight: bold;">typedef</span> <span style="color: #00ffff; font-weight: bold;">typename</span> <span style="color: #ff00ff;">iterator_traits</span><span style="color: #7388d6;">&lt;</span><span style="color: #00ff00;">ForwardIterator2</span><span style="color: #7388d6;">&gt;</span>::<span style="color: #00ff00;">iterator_category</span> <span style="color: #00ff00;">category2</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> __find_end<span style="color: #7388d6;">(</span>first1, last1, first2, last2, category1<span style="color: #909183;">()</span>, category2<span style="color: #909183;">()</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator2</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #0000ff; font-weight: bold;">__find_end</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">last1</span>,
+                            <span style="color: #00ff00;">ForwardIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">ForwardIterator2</span> <span style="color: #ffff00;">last2</span>,
+                            forward_iterator_tag, forward_iterator_tag<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>first2 == last2<span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> last1;
+    <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">result</span> = last1;
+        <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #909183;">(</span><span style="color: #ff00ff;">1</span><span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+            <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#20808;&#25628;&#32034;&#19979;&#19968;&#32452;&#65292;&#20877;&#25226;&#19979;&#19968;&#32452;&#36171;&#32473;result  &#23601;&#21644;&#21333;&#38142;&#34920;&#21024;&#38500;&#33410;&#28857;&#19968;&#26679;&#65292;&#35201;&#21024;&#38500;&#19979;&#19968;&#20010;&#33410;&#28857;&#65292;</span>
+            <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#25105;&#20204;&#35201;&#39044;&#30041;&#19978;&#19968;&#20010;&#33410;&#28857;&#65292;&#36825;&#37324;&#26159;&#35201;&#20808;&#25214;&#21040; &#19979;&#19968;&#20010;&#19981;&#31526;&#21512;&#30340;&#24773;&#20917; &#25105;&#20204;&#25165;&#30693;&#36947;&#36825;&#26159;&#26368;&#21518;&#19968;&#20010;</span>
+            <span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">new_result</span> = search<span style="color: #709870;">(</span>first1, last1, first2, last2<span style="color: #709870;">)</span>;
+            <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #709870;">(</span>new_result == last1<span style="color: #709870;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> result;
+            <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #709870;">{</span>
+                result = new_result;
+                first1 = new_result;
+                ++first;
+            <span style="color: #709870;">}</span>
+        <span style="color: #909183;">}</span>
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>
+<span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#21452;&#21521;&#36845;&#20195;&#22120;&#36208;&#36825;&#36793;</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BidirectionalIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BidirectionalIterator2</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">BidirectionalIterator1</span>
+<span style="color: #0000ff; font-weight: bold;">__find_end</span><span style="color: #707183;">(</span><span style="color: #00ff00;">BidirectionalIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">BidirectionalIterator1</span> <span style="color: #ffff00;">last1</span>,
+           <span style="color: #00ff00;">BidirectionalIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">BidirectionalIterator2</span> <span style="color: #ffff00;">last2</span>,
+           bidirectional_iterator_tag, bidirectional_iterator_tag<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">typedef</span> <span style="color: #00ff00;">reverse_iterator</span><span style="color: #7388d6;">&lt;</span><span style="color: #00ff00;">BidirectionalIterator1</span><span style="color: #7388d6;">&gt;</span> <span style="color: #00ff00;">reviter1</span>;
+    <span style="color: #00ffff; font-weight: bold;">typedef</span> <span style="color: #00ff00;">reverse_iterator</span><span style="color: #7388d6;">&lt;</span><span style="color: #00ff00;">BidirectionalIterator2</span><span style="color: #7388d6;">&gt;</span> <span style="color: #00ff00;">reviter2</span>;
+    <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#20808;&#30830;&#23450;end&#20301;&#32622;</span>
+    <span style="color: #00ff00;">reviter1</span> <span style="color: #ffff00;">rlast1</span><span style="color: #7388d6;">(</span>first1<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ff00;">reviter2</span> <span style="color: #ffff00;">rlast2</span><span style="color: #7388d6;">(</span>first2<span style="color: #7388d6;">)</span>;
+    <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#25214;&#21040;&#31532;&#19968;&#32452;&#23601;&#21487;&#20197;&#20102;</span>
+    <span style="color: #00ff00;">reviter1</span> <span style="color: #ffff00;">rresult</span> = search<span style="color: #7388d6;">(</span>reviter1<span style="color: #909183;">(</span>last1<span style="color: #909183;">)</span>, rlast1, reviter2<span style="color: #909183;">(</span>last2<span style="color: #909183;">)</span>, rlast2<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>rresult == rlast1<span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> last1;       <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#27809;&#25214;&#21040;</span>
+    <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#20462;&#25913;&#20301;&#32622;&#65292; base()&#25104;&#21592;&#20989;&#25968;&#21487;&#20197;&#21462;&#24471;&#30495;&#23454;&#20301;&#32622;&#65292;&#22240;&#20026;&#21453;&#21521;&#36845;&#20195;&#22120;&#26377;&#20004;&#20010;&#20301;&#32622;&#65292;</span>
+        <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#19968;&#20010;&#26159;&#30495;&#23454;&#20301;&#32622;&#65292;&#19968;&#20010;&#26159;&#20182; &#8220;&#19979;&#19968;&#20010;&#8221;&#20301;&#32622; &#20182;&#30340;&#8221;&#19979;&#19968;&#20010;&#8220;&#20854;&#23454;&#26159;&#27491;&#21521;&#36845;&#20195;&#22120;&#30340;&#19978;&#19968;&#20010;</span>
+        <span style="color: #ff0000;">//</span><span style="color: #ff0000;">1 2 3 &#27492;&#26102;&#21453;&#21521;&#36845;&#20195;&#22120;&#25351;&#21521;3 operator*() &#21462;&#21040;&#30340;&#26159;2 base()&#21462;&#21040;&#30340;&#26159; 3</span>
+        <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#19979;&#38754;&#30340;&#25805;&#20316;&#26159;&#20026;&#20102;&#20351;result == end</span>
+        <span style="color: #00ff00;">BidirectionalIterator1</span> <span style="color: #ffff00;">result</span> = rresult.base<span style="color: #909183;">()</span>;
+        <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#20943;&#21435;&#36317;&#31163;&#65292;&#23601;&#21487;&#20197;&#20351;result&#21464;&#25104;first</span>
+        advance<span style="color: #909183;">(</span>result, -distance<span style="color: #709870;">(</span>first2, last2<span style="color: #709870;">)</span><span style="color: #909183;">)</span>;
+        <span style="color: #00ffff; font-weight: bold;">return</span> result;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline36" class="outline-4">
+<h4 id="orgheadline36"><span class="section-number-4">1.5.7</span> find<sub>first</sub><sub>of</sub> 参照 find<sub>end</sub></h4>
+<div class="outline-text-4" id="text-1-5-7">
+<p>
+在序列一[first1, last1)所涵盖的区间中，查找序列二[first2, last2)的第一次出现点。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">InputIterator</span> <span style="color: #0000ff; font-weight: bold;">find_first_of</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last1</span>,
+                            <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last2</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first1 != last1; ++first1<span style="color: #7388d6;">)</span>
+        <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">iter</span> = first2; iter != last2; ++iter<span style="color: #7388d6;">)</span>
+            <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>*first1 == *iter<span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> first;
+    <span style="color: #00ffff; font-weight: bold;">return</span> last1;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BinaryPredicate</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">InputIterator</span> <span style="color: #0000ff; font-weight: bold;">find_first_of</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last1</span>,
+                            <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">ForwardIterator</span> last2
+                            <span style="color: #00ff00;">BinaryPredicate</span> <span style="color: #ffff00;">comp</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first1 != last1; ++first1<span style="color: #7388d6;">)</span>
+        <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">iter</span> = first2; iter != last2; ++iter<span style="color: #7388d6;">)</span>
+            <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>comp<span style="color: #909183;">(</span>*first1 == *iter<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> first;
+    <span style="color: #00ffff; font-weight: bold;">return</span> last1;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline37" class="outline-4">
+<h4 id="orgheadline37"><span class="section-number-4">1.5.8</span> for<sub>each</sub></h4>
+<div class="outline-text-4" id="text-1-5-8">
+<p>
+将仿函数f施行于[first1, last1)区间内的每一个元素身上。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Function</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">Function</span> <span style="color: #0000ff; font-weight: bold;">for_each</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">Function</span> <span style="color: #ffff00;">f</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first != last; ++first<span style="color: #7388d6;">)</span> f<span style="color: #7388d6;">(</span>*first<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> f;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline38" class="outline-4">
+<h4 id="orgheadline38"><span class="section-number-4">1.5.9</span> generate</h4>
+<div class="outline-text-4" id="text-1-5-9">
+<p>
+将仿函数gen的运算结果填写在[first, last)区间内的所有元素身上。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Generator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">generate</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">Generator</span> <span style="color: #ffff00;">gen</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first != last; ++first<span style="color: #7388d6;">)</span>
+        *first = gen<span style="color: #7388d6;">()</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline39" class="outline-4">
+<h4 id="orgheadline39"><span class="section-number-4">1.5.10</span> generate<sub>n</sub></h4>
+<div class="outline-text-4" id="text-1-5-10">
+<p>
+将仿函数gen的运算结果填写在[first, first + n)区间内的所有元素身上。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>,<span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Size</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Generator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">generate_n</span><span style="color: #707183;">(</span><span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">Size</span> <span style="color: #ffff00;">n</span>, <span style="color: #00ff00;">Generator</span> <span style="color: #ffff00;">gen</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; n &gt; <span style="color: #ff00ff;">0</span>; --n, ++first<span style="color: #7388d6;">)</span> *first = gen<span style="color: #7388d6;">()</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> first;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline40" class="outline-4">
+<h4 id="orgheadline40"><span class="section-number-4">1.5.11</span> includes (应用于有序区间)</h4>
+<div class="outline-text-4" id="text-1-5-11">
+<p>
+判断序列二是否“涵盖于”序列一。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator2</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">bool</span> <span style="color: #0000ff; font-weight: bold;">includes</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">last1</span>,
+              <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">last2</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>first1 != last1 &amp;&amp; first2 != last2<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>*first2 &lt; *first1<span style="color: #909183;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> <span style="color: #ff00ff;">false</span>;
+        <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>*first1 &lt; *first2<span style="color: #909183;">)</span> ++first1;
+        <span style="color: #00ffff; font-weight: bold;">else</span> ++first1, ++first2;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> first2 == last2;
+<span style="color: #707183;">}</span>
+
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator2</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Compare</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">bool</span> <span style="color: #0000ff; font-weight: bold;">includes</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">last1</span>,
+              <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">last2</span>, <span style="color: #00ff00;">Compare</span> <span style="color: #ffff00;">comp</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>first1 != last1 &amp;&amp; first2 != last2<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>compare<span style="color: #709870;">(</span>*first2, *first1<span style="color: #709870;">)</span><span style="color: #909183;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> <span style="color: #ff00ff;">false</span>;
+        <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>compare<span style="color: #709870;">(</span>*first1, *first2<span style="color: #709870;">)</span><span style="color: #909183;">)</span> ++first1;
+        <span style="color: #00ffff; font-weight: bold;">else</span> ++first1, ++first2;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> first2 == last2;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline41" class="outline-4">
+<h4 id="orgheadline41"><span class="section-number-4">1.5.12</span> max<sub>element</sub></h4>
+<div class="outline-text-4" id="text-1-5-12">
+<p>
+返回一个迭代器，指向序列之中数值最大的元素。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">ForwardIterator</span> <span style="color: #0000ff; font-weight: bold;">max_element</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>first == last<span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> first;
+    <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">result</span> = first;
+    <span style="color: #00ffff; font-weight: bold;">while</span><span style="color: #7388d6;">(</span>++first != last<span style="color: #7388d6;">)</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>*result &lt; *first<span style="color: #7388d6;">)</span> result = first;
+    <span style="color: #00ffff; font-weight: bold;">return</span> result;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Compare</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">ForwardIterator</span> <span style="color: #0000ff; font-weight: bold;">max_element</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last</span>,
+                            <span style="color: #00ff00;">Compare</span> <span style="color: #ffff00;">comp</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>first == last<span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> first;
+    <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">result</span> = first;
+    <span style="color: #00ffff; font-weight: bold;">while</span><span style="color: #7388d6;">(</span>++first != last<span style="color: #7388d6;">)</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>comp<span style="color: #909183;">(</span>*result, *first<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span> result = first;
+    <span style="color: #00ffff; font-weight: bold;">return</span> result;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline42" class="outline-4">
+<h4 id="orgheadline42"><span class="section-number-4">1.5.13</span> min<sub>element</sub> &#x2013; 参照 max<sub>element</sub></h4>
+<div class="outline-text-4" id="text-1-5-13">
+<p>
+返回一个迭代器，指向序列之中数值最小的元素。
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline43" class="outline-4">
+<h4 id="orgheadline43"><span class="section-number-4">1.5.14</span> merge (应用于有序空间)</h4>
+<div class="outline-text-4" id="text-1-5-14">
+<p>
+将两个序列合并为一个序列
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator2</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">merge</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">last1</span>,
+                     <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">last2</span>,
+                     <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>first1 != last1 &amp;&amp; first2 != last2<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>*first2 &lt; *first1<span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+            *result = *first2;
+            ++first2;
+        <span style="color: #909183;">}</span>
+        <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #909183;">{</span>
+            *result = *first1;
+            ++first1;
+        <span style="color: #909183;">}</span>
+        ++result;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> copy<span style="color: #7388d6;">(</span>first2, last2, copy<span style="color: #909183;">(</span>first1, last1, result<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator2</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Compare</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">merge</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">last1</span>,
+                     <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">last2</span>,
+                     <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span>, <span style="color: #00ff00;">Compare</span> <span style="color: #ffff00;">comp</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>first1 != last1 &amp;&amp; first2 != last2<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>comp<span style="color: #709870;">(</span>*first2, *first1<span style="color: #709870;">)</span><span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+            *result = *first2;
+            ++first2;
+        <span style="color: #909183;">}</span>
+        <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #909183;">{</span>
+            *result = *first1;
+            ++first1;
+        <span style="color: #909183;">}</span>
+        ++result;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> copy<span style="color: #7388d6;">(</span>first2, last2, copy<span style="color: #909183;">(</span>first1, last1, result<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline44" class="outline-4">
+<h4 id="orgheadline44"><span class="section-number-4">1.5.15</span> partition</h4>
+<div class="outline-text-4" id="text-1-5-15">
+<p>
+将区间[first, last)中的元素重新排列，所有被一元条件运算pred判定为true的元素，都会被放在区间的前端，被判定为false的元素，都会被放在区间的后端。这个算法并不保证保留元素的原始相对位置。如果需要保留原始相对位置，应使用stable<sub>partition</sub>。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BidirectionalIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Predicate</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">BidirectionalIterator</span> <span style="color: #0000ff; font-weight: bold;">partition</span><span style="color: #707183;">(</span><span style="color: #00ff00;">BidirectionalIterator</span> <span style="color: #ffff00;">first</span>,
+                                <span style="color: #00ff00;">BidirectionalIterator</span> <span style="color: #ffff00;">last</span>,
+                                <span style="color: #00ff00;">Predicate</span> <span style="color: #ffff00;">pred</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span><span style="color: #ff00ff;">true</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #909183;">(</span><span style="color: #ff00ff;">true</span><span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+            <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #709870;">(</span>first == last<span style="color: #709870;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> first;
+            <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #709870;">(</span>pred<span style="color: #907373;">(</span>*first<span style="color: #907373;">)</span><span style="color: #709870;">)</span> ++first;
+            <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #00ffff; font-weight: bold;">break</span>;
+        <span style="color: #909183;">}</span> --last;             <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#31532;&#19968;&#27425;&#25351;&#21521;&#30340;&#20107;end&#25152;&#20197;-- &#20043;&#21518;&#25351;&#21521;&#30340;&#26159;&#21028;&#26029;&#36807;&#30340;&#25968;&#65292;&#25152;&#20197;&#35201;--</span>
+        <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #909183;">(</span><span style="color: #ff00ff;">true</span><span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+            <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #709870;">(</span>first == last<span style="color: #709870;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> first;
+            <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #709870;">(</span>!pred<span style="color: #907373;">(</span>*last<span style="color: #907373;">)</span><span style="color: #709870;">)</span> --last;
+            <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #00ffff; font-weight: bold;">break</span>;
+        <span style="color: #909183;">}</span>
+        iter_swap<span style="color: #909183;">(</span>first, last<span style="color: #909183;">)</span>;
+        ++first;            <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#25509;&#19979;&#26469;&#35201;&#21028;&#26029;&#19979;&#19968;&#20010;</span>
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline45" class="outline-4">
+<h4 id="orgheadline45"><span class="section-number-4">1.5.16</span> remove 移除（但不删除）</h4>
+<div class="outline-text-4" id="text-1-5-16">
+<p>
+移除[first, last)区间内所有与value相等的元素。
+注意：这一算法并不是真正从容器中删除那些元素（换句话说容器的大小并没有发生改变）。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">ForwardIterator</span> <span style="color: #0000ff; font-weight: bold;">remove</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last</span>,
+                       <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">value</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    first = find<span style="color: #7388d6;">(</span>first, last, value<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">next</span> = first;
+    <span style="color: #00ffff; font-weight: bold;">return</span> first == last ? first : remove_copy<span style="color: #7388d6;">(</span>++next, last, first, value<span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline46" class="outline-4">
+<h4 id="orgheadline46"><span class="section-number-4">1.5.17</span> remove<sub>copy</sub></h4>
+<div class="outline-text-4" id="text-1-5-17">
+<p>
+移除[first, last)区间内所有与value相等的元素。（原容器不发生改变）将结果复制到一个以result表示起始位置的容器身上。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">remove_copy</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span>, first, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                           <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">value</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first != last; ++first<span style="color: #7388d6;">)</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>*first != value<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+            *result = *first;
+            ++result;
+        <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> result;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline47" class="outline-4">
+<h4 id="orgheadline47"><span class="section-number-4">1.5.18</span> remove<sub>if</sub> &#x2013; 参照 remove</h4>
+</div>
+
+<div id="outline-container-orgheadline48" class="outline-4">
+<h4 id="orgheadline48"><span class="section-number-4">1.5.19</span> remove<sub>copy</sub><sub>if</sub> &#x2013; 参照 remove<sub>copy</sub></h4>
+</div>
+
+<div id="outline-container-orgheadline49" class="outline-4">
+<h4 id="orgheadline49"><span class="section-number-4">1.5.20</span> replace</h4>
+<div class="outline-text-4" id="text-1-5-20">
+<p>
+将[first, last)区间内的所有old<sub>value都以new</sub><sub>value取代</sub>。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">replace</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last</span>,
+             <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">old_value</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">new_value</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first != last; ++first<span style="color: #7388d6;">)</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>*first == old_value<span style="color: #7388d6;">)</span>
+            *first = new_value;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline50" class="outline-4">
+<h4 id="orgheadline50"><span class="section-number-4">1.5.21</span> replace<sub>copy</sub></h4>
+<div class="outline-text-4" id="text-1-5-21">
+<p>
+将[first, last)区间内的所有old<sub>value都以new</sub><sub>value取代</sub>。（原容器不发生改变）将结果复制到一个以result表示起始位置的容器身上。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">replace_copy</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                            <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">old_value</span>,
+                            <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">new_value</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first != last; ++first, ++result<span style="color: #7388d6;">)</span>
+        *result = *first == old_value ? new_value : *first;
+    <span style="color: #00ffff; font-weight: bold;">return</span> result;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline51" class="outline-4">
+<h4 id="orgheadline51"><span class="section-number-4">1.5.22</span> replace<sub>if</sub> &#x2013; 参照 replace</h4>
+</div>
+
+<div id="outline-container-orgheadline52" class="outline-4">
+<h4 id="orgheadline52"><span class="section-number-4">1.5.23</span> replace<sub>copy</sub><sub>if</sub> &#x2013; 参照 replace<sub>copy</sub></h4>
+</div>
+
+<div id="outline-container-orgheadline53" class="outline-4">
+<h4 id="orgheadline53"><span class="section-number-4">1.5.24</span> reverse</h4>
+<div class="outline-text-4" id="text-1-5-24">
+<p>
+将序列[first, last)区间的元素在原容器中颠倒重排。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BidirectionalIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">reverse</span><span style="color: #707183;">(</span><span style="color: #00ff00;">BidirectionalIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">BidirectionalIterator</span> <span style="color: #ffff00;">last</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    __reverse<span style="color: #7388d6;">(</span>first, last, iterator_category<span style="color: #909183;">(</span>first<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BidirectionalIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">__reverse</span><span style="color: #707183;">(</span><span style="color: #00ff00;">BidirectionalIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">BidirectionalIterator</span> <span style="color: #ffff00;">last</span>,
+               bidirectional_iterator_tag<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span><span style="color: #ff00ff;">true</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>first == last || first == --last<span style="color: #909183;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span>;
+        <span style="color: #00ffff; font-weight: bold;">else</span> iter_swap<span style="color: #909183;">(</span>first++, last<span style="color: #909183;">)</span>;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>
+<span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#38543;&#26426;&#36845;&#20195;&#22120;&#30340;&#29256;&#26412;&#21482;&#38656;&#35201;&#21028;&#26029;&#19968;&#27425; &#32780;&#38750;&#38543;&#26426;&#36845;&#20195;&#22120;&#35201;&#21028;&#26029;&#20004;&#27425;&#65292;&#25925;&#25928;&#29575;&#19978;&#26377;&#24046;&#36317;&#65292;&#25152;&#20197;&#20998;&#24320;&#20889;</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">RandomAccessIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">__reverse</span><span style="color: #707183;">(</span><span style="color: #00ff00;">RandomAccessIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">RandomAccessIterator</span> <span style="color: #ffff00;">last</span>,
+               random_access_iterator_tag<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">while</span><span style="color: #7388d6;">(</span>first &lt; last<span style="color: #7388d6;">)</span>
+        iter_swap<span style="color: #7388d6;">(</span>first++, --last<span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline54" class="outline-4">
+<h4 id="orgheadline54"><span class="section-number-4">1.5.25</span> reverse<sub>copy</sub></h4>
+<div class="outline-text-4" id="text-1-5-25">
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BidirectionalIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">reverse_copy</span><span style="color: #707183;">(</span><span style="color: #00ff00;">BidirectionalIterator</span> <span style="color: #ffff00;">first</span>,
+                            <span style="color: #00ff00;">BidirectionalIterator</span> <span style="color: #ffff00;">last</span>,
+                            <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>first != last<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        --last;
+        *result = *last;
+        ++result;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> result;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline55" class="outline-4">
+<h4 id="orgheadline55"><span class="section-number-4">1.5.26</span> rotate</h4>
+<div class="outline-text-4" id="text-1-5-26">
+<p>
+将[first, middle)内的元素和[middle, last)内的元素互换。
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">rotate</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">middle</span>,
+                   <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>first == middle || middle == last<span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span>;
+    __rotate<span style="color: #7388d6;">(</span>first, middle, last, distance_type<span style="color: #909183;">(</span>first<span style="color: #909183;">)</span>,
+             iterator_category<span style="color: #909183;">(</span>first<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#21333;&#21521;&#30340;&#36845;&#20195;&#22120;&#36208;&#36825;&#36793;</span>
+<span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#21482;&#33021;&#21333;&#21521;&#34892;&#36208;&#65292;&#25928;&#29575;&#26368;&#20302;&#65292;&#35201;&#36171;&#20540;&#36215;&#30721;1.5n&#27425;(&#24403;&#20004;&#32773;&#21306;&#38388;&#30456;&#21516;&#26102;)&#12290;</span>
+<span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#35843;&#29992;&#19968;&#27425;swap&#23601;&#35201;&#36171;&#20540;3&#27425;</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Distance</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">__rotate</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">middle</span>,
+              <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">Distance</span>*, forward_iterator_tag<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">i</span> = middle; ;<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        iter_swap<span style="color: #909183;">(</span>first, i<span style="color: #909183;">)</span>;
+        ++first;
+        ++i;
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>first == middle<span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+            <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #709870;">(</span>i == last<span style="color: #709870;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span>;
+            middle = i;
+        <span style="color: #909183;">}</span>
+        <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>i ==last<span style="color: #909183;">)</span> i = middle;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>
+<span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#19977;&#27425;&#21453;&#36716; &#22266;&#23450;&#36171;&#20540;1.5n&#27425;</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BidirectionalIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Distance</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">__rotate</span><span style="color: #707183;">(</span><span style="color: #00ff00;">BidirectionalIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">BidirectionalIterator</span> <span style="color: #ffff00;">middle</span>,
+              <span style="color: #00ff00;">BidirectionalIterator</span> <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">Distance</span>*,
+              bidirectional_iterator_tag<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    reverse<span style="color: #7388d6;">(</span>first, middle<span style="color: #7388d6;">)</span>;
+    reverse<span style="color: #7388d6;">(</span>middle, last<span style="color: #7388d6;">)</span>;
+    reverse<span style="color: #7388d6;">(</span>first, last<span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">RandomAccessIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Distance</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">__rotate</span><span style="color: #707183;">(</span><span style="color: #00ff00;">RandomAccessIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">RandomAccessIterator</span> <span style="color: #ffff00;">middle</span>,
+              <span style="color: #00ff00;">RandomAccessIterator</span> <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">Distance</span>*,
+              random_access_iterator_tag<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ff00;">Distance</span> <span style="color: #ffff00;">n</span> = __gcd<span style="color: #7388d6;">(</span>last - first, middle - first<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>n--<span style="color: #7388d6;">)</span>
+        __rotate_cycle<span style="color: #7388d6;">(</span>first, last, first + n, middle - first,
+                       value_type<span style="color: #909183;">(</span>first<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">EuclideanRingElement</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">EuclideanRingElement</span> <span style="color: #0000ff; font-weight: bold;">__gcd</span><span style="color: #707183;">(</span><span style="color: #00ff00;">EuclideanRingElement</span> <span style="color: #ffff00;">m</span>, <span style="color: #00ff00;">EuclideanRingElement</span> <span style="color: #ffff00;">n</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>n != <span style="color: #ff00ff;">0</span><span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ff00;">EuclideanRingElement</span> <span style="color: #ffff00;">t</span> = m % n;
+        m = n;
+        n = t;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> m;
+<span style="color: #707183;">}</span>
+<span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#26368;&#24046;&#30340;&#24773;&#20917;&#36171;&#20540;1.5n&#27425;(&#24403;&#21306;&#38388;&#30456;&#31561;&#26102;)&#65292;&#26368;&#23569;&#36171;&#20540;n&#65291;1&#27425;(&#31532;&#19968;&#20010;&#25110;&#31532;&#20108;&#20010;&#21306;&#38388;&#20026;1&#26102;)&#12290;</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">RandomAccessIteratorm</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Distance</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">void</span> <span style="color: #0000ff; font-weight: bold;">__rotate_cycle</span><span style="color: #707183;">(</span><span style="color: #00ff00;">RandomAccessIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">RandomAccessIterator</span> <span style="color: #ffff00;">last</span>,
+                    <span style="color: #00ff00;">RandomAccessIterator</span> <span style="color: #ffff00;">initial</span>, <span style="color: #00ff00;">Distance</span> <span style="color: #ffff00;">shift</span>, <span style="color: #00ff00;">T</span>*<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">value</span> = *initial;
+    <span style="color: #00ff00;">RandomAccessIterator</span> <span style="color: #ffff00;">ptr1</span> = initial;
+    <span style="color: #00ff00;">RandomAccessIterator</span> <span style="color: #ffff00;">ptr2</span> = ptr1 + shift;
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>ptr2 != initial<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        *ptr1 = *ptr2;
+        ptr1 = ptr2;
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>last - ptr2 &gt; shift<span style="color: #909183;">)</span>
+            ptr2 += shift;
+        <span style="color: #00ffff; font-weight: bold;">else</span>
+            ptr2 = first + <span style="color: #909183;">(</span>shift - <span style="color: #709870;">(</span>last - ptr2<span style="color: #709870;">)</span><span style="color: #909183;">)</span>;
+    <span style="color: #7388d6;">}</span>
+    *ptr1 = value;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline56" class="outline-4">
+<h4 id="orgheadline56"><span class="section-number-4">1.5.27</span> rotate<sub>copy</sub></h4>
+<div class="outline-text-4" id="text-1-5-27">
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">rotate_copy</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">middle</span>,
+                           <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last</span>, <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> copy<span style="color: #7388d6;">(</span>first, middle, copy<span style="color: #909183;">(</span>middle, last, result<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline57" class="outline-4">
+<h4 id="orgheadline57"><span class="section-number-4">1.5.28</span> search</h4>
+<div class="outline-text-4" id="text-1-5-28">
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator2</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #0000ff; font-weight: bold;">search</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">first1</span>,
+                              <span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">last1</span>,
+                              <span style="color: #00ff00;">ForwardIterator2</span> <span style="color: #ffff00;">first2</span>,
+                              <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last2</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> __search<span style="color: #7388d6;">(</span>first1, last1, first2, last2,distance_type<span style="color: #909183;">(</span>first1<span style="color: #909183;">)</span>,
+                    distance_type<span style="color: #909183;">(</span>first2<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator2</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">distance1</span>,
+         <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Distance2</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #0000ff; font-weight: bold;">__search</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">last1</span>,
+                          <span style="color: #00ff00;">ForwardIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">ForwardIterator2</span> <span style="color: #ffff00;">last2</span>,
+                          <span style="color: #00ff00;">Distance1</span>*, <span style="color: #00ff00;">Distance2</span>*<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ff00;">Distance1</span> <span style="color: #ffff00;">d1</span> = <span style="color: #ff00ff;">0</span>;
+    distance<span style="color: #7388d6;">(</span>first1, last1, d1<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ff00;">Distance2</span> <span style="color: #ffff00;">d2</span> = <span style="color: #ff00ff;">0</span>;
+    distance<span style="color: #7388d6;">(</span>first2, last2, d2<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>d1 &lt; d2<span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> last1;
+    <span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">current1</span> = first1;
+    <span style="color: #00ff00;">ForwardIterator2</span> <span style="color: #ffff00;">current2</span> = first2;
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>current2 != last2<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span> <span style="color: #909183;">(</span>*current1 == *current2<span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+            ++current1;
+            ++current2;
+        <span style="color: #909183;">}</span>
+        <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #909183;">{</span>
+            <span style="color: #00ffff; font-weight: bold;">if</span> <span style="color: #709870;">(</span>d1 == d2<span style="color: #709870;">)</span>
+                <span style="color: #00ffff; font-weight: bold;">return</span> last1;
+            <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #709870;">{</span>
+                current1 = ++first1;
+                current2 = first2;
+                --d1;
+            <span style="color: #709870;">}</span>
+        <span style="color: #909183;">}</span>
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> first1;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline58" class="outline-4">
+<h4 id="orgheadline58"><span class="section-number-4">1.5.29</span> search<sub>n</sub></h4>
+<div class="outline-text-4" id="text-1-5-29">
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Interger</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">ForwardIterator</span> <span style="color: #0000ff; font-weight: bold;">search_n</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>,
+                         <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last</span>,
+                         <span style="color: #00ff00;">Interger</span> <span style="color: #ffff00;">count</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">value</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>count &lt;= <span style="color: #ff00ff;">0</span><span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> first;
+    <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#20808;&#25214;&#21040;&#31532;&#19968;&#20010;</span>
+        first = find<span style="color: #909183;">(</span>first, last, value<span style="color: #909183;">)</span>;
+        <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #909183;">(</span>first != last<span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+            <span style="color: #00ff00;">Interger</span> <span style="color: #ffff00;">n</span> = count - <span style="color: #ff00ff;">1</span>;
+            <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">i</span> = first;
+            ++i;
+            <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#25214;&#36830;&#32493;&#31526;&#21512;&#30340;&#20803;&#32032;&#65292;&#37117;&#25214;&#21040;&#20102;&#30340;&#35805; n&#20250;&#31561;&#20110;0&#65307;</span>
+            <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #709870;">(</span>i != last &amp;&amp; n != <span style="color: #ff00ff;">0</span> &amp;&amp; *i == value<span style="color: #709870;">)</span> <span style="color: #709870;">{</span>
+                ++i;
+                --n;
+            <span style="color: #709870;">}</span>
+            <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #709870;">(</span>n == <span style="color: #ff00ff;">0</span><span style="color: #709870;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> first;
+            <span style="color: #00ffff; font-weight: bold;">else</span>
+                first = find<span style="color: #709870;">(</span>i, last, value<span style="color: #709870;">)</span>;
+        <span style="color: #909183;">}</span>
+        <span style="color: #00ffff; font-weight: bold;">return</span> last;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">Interger</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span>,
+         <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BinaryPredicate</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">ForwardIterator</span> <span style="color: #0000ff; font-weight: bold;">search_n</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>,
+                         <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last</span>,
+                         <span style="color: #00ff00;">Interger</span> <span style="color: #ffff00;">count</span>, <span style="color: #00ffff; font-weight: bold;">const</span> <span style="color: #00ff00;">T</span>&amp; <span style="color: #ffff00;">value</span>,
+                         <span style="color: #00ff00;">BinaryPredicate</span> <span style="color: #ffff00;">binary_pred</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>count &lt;= <span style="color: #ff00ff;">0</span><span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> first;
+    <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#33258;&#24049;&#23454;&#29616;find&#65292;&#20854;&#23454;&#21487;&#20197;&#20351;&#29992;find_if&#29256;&#26412;&#30340; &#19981;&#36807;&#38656;&#35201;&#20351;&#29992;bind&#20989;&#25968;</span>
+        <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #909183;">(</span>first != last<span style="color: #909183;">)</span> <span style="color: #909183;">{</span>
+            <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #709870;">(</span>binary_pred<span style="color: #907373;">(</span>*first, value<span style="color: #907373;">)</span><span style="color: #709870;">)</span> <span style="color: #00ffff; font-weight: bold;">break</span>;
+            ++first;
+        <span style="color: #909183;">}</span>
+        <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #909183;">(</span>first != last<span style="color: #909183;">)</span>
+        <span style="color: #909183;">{</span>
+            <span style="color: #00ff00;">Interger</span> <span style="color: #ffff00;">n</span> = count - <span style="color: #ff00ff;">1</span>;
+            <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">i</span> = first;
+            ++i;
+            <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#25214;&#36830;&#32493;&#31526;&#21512;&#30340;&#20803;&#32032;&#65292;&#37117;&#25214;&#21040;&#20102;&#30340;&#35805; n&#20250;&#31561;&#20110;0&#65307;</span>
+            <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #709870;">(</span>i != last &amp;&amp; n != <span style="color: #ff00ff;">0</span> &amp;&amp; *i == value<span style="color: #709870;">)</span> <span style="color: #709870;">{</span>
+                ++i;
+                --n;
+            <span style="color: #709870;">}</span>
+            <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #709870;">(</span>n == <span style="color: #ff00ff;">0</span><span style="color: #709870;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> first;
+            <span style="color: #00ffff; font-weight: bold;">else</span> <span style="color: #709870;">{</span>
+                <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #907373;">(</span>i != last<span style="color: #907373;">)</span> <span style="color: #907373;">{</span>
+                    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #6276ba;">(</span>binary_pred<span style="color: #858580;">(</span>*first, value<span style="color: #858580;">)</span><span style="color: #6276ba;">)</span> <span style="color: #00ffff; font-weight: bold;">break</span>;
+                    ++i;
+                <span style="color: #907373;">}</span>
+                first = i;
+            <span style="color: #709870;">}</span>
+        <span style="color: #909183;">}</span>
+        <span style="color: #00ffff; font-weight: bold;">return</span> last;
+    <span style="color: #7388d6;">}</span>
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline59" class="outline-4">
+<h4 id="orgheadline59"><span class="section-number-4">1.5.30</span> swap<sub>ranges</sub></h4>
+<div class="outline-text-4" id="text-1-5-30">
+<p>
+注意：区间不能重叠，不然会产生未知结果
+</p>
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator2</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">ForwardIterator2</span> <span style="color: #0000ff; font-weight: bold;">swap_ranges</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">first1</span>,
+                             <span style="color: #00ff00;">ForwardIterator1</span> <span style="color: #ffff00;">last1</span>,
+                             <span style="color: #00ff00;">ForwardIterator2</span> <span style="color: #ffff00;">first2</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first != last1; ++first1, ++first2<span style="color: #7388d6;">)</span>
+        iter_swap<span style="color: #7388d6;">(</span>first1, first2<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> first2;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline60" class="outline-4">
+<h4 id="orgheadline60"><span class="section-number-4">1.5.31</span> transform</h4>
+<div class="outline-text-4" id="text-1-5-31">
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">UnaryOperation</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">transform</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                         <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span>, <span style="color: #00ff00;">UnaryOperation</span> <span style="color: #ffff00;">op</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first != last; ++first, ++result<span style="color: #7388d6;">)</span>
+        *result = op<span style="color: #7388d6;">(</span>*first<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> result;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator1</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator2</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>,
+         <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">BinaryOperation</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">transform</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator1</span> <span style="color: #ffff00;">first1</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last1</span>,
+                         <span style="color: #00ff00;">InputIterator2</span> <span style="color: #ffff00;">first2</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last2</span>,
+                         <span style="color: #00ff00;">BinaryOperation</span> <span style="color: #ffff00;">binary_op</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">for</span><span style="color: #7388d6;">(</span>; first1 != last1; ++first1, ++first2, ++result<span style="color: #7388d6;">)</span>
+        *result = binary_op<span style="color: #7388d6;">(</span>*first1, *first2<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> result;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline61" class="outline-4">
+<h4 id="orgheadline61"><span class="section-number-4">1.5.32</span> unique</h4>
+<div class="outline-text-4" id="text-1-5-32">
+<p>
+移除（remove）重复的元素。
+</p>
+
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">ForwardIterator</span> <span style="color: #0000ff; font-weight: bold;">unique</span><span style="color: #707183;">(</span><span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">last</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    first = adjacent_find<span style="color: #7388d6;">(</span>first, last<span style="color: #7388d6;">)</span>;
+    <span style="color: #00ffff; font-weight: bold;">return</span> unique_copy<span style="color: #7388d6;">(</span>first, last, first<span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgheadline62" class="outline-4">
+<h4 id="orgheadline62"><span class="section-number-4">1.5.33</span> unique<sub>copy</sub></h4>
+<div class="outline-text-4" id="text-1-5-33">
+<div class="org-src-container">
+
+<pre class="src src-C++"><span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">unique_copy</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>,
+                                  <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                                  <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span><span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #7388d6;">(</span>first == last<span style="color: #7388d6;">)</span> <span style="color: #00ffff; font-weight: bold;">return</span> result;
+    <span style="color: #00ffff; font-weight: bold;">return</span> __unique_copy<span style="color: #7388d6;">(</span>first, last, result, iterator_category<span style="color: #909183;">(</span>result<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">ForwardIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">ForwardIterator</span> <span style="color: #0000ff; font-weight: bold;">__unique_copy</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>,
+                              <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                              <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">result</span>,
+                              forward_iterator_tag<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    *result = *first;
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>++first != last<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>*result != *first<span style="color: #909183;">)</span>
+            *++result = *first;
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> ++result;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ffff; font-weight: bold;">inline</span> <span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">__unique_copy</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>,
+                                    <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                                    <span style="color: #00ff00;">ForwardIterator</span> <span style="color: #ffff00;">result</span>,
+                                    output_iterator_tag<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> __unique_copy<span style="color: #7388d6;">(</span>first, last, result, value_type<span style="color: #909183;">(</span>first<span style="color: #909183;">)</span><span style="color: #7388d6;">)</span>;
+<span style="color: #707183;">}</span>
+<span style="color: #00ffff; font-weight: bold;">template</span><span style="color: #707183;">&lt;</span><span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">InputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">OutputIterator</span>, <span style="color: #00ffff; font-weight: bold;">class</span> <span style="color: #00ff00;">T</span><span style="color: #707183;">&gt;</span>
+<span style="color: #00ff00;">OutputIterator</span> <span style="color: #0000ff; font-weight: bold;">__unique_copy</span><span style="color: #707183;">(</span><span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">first</span>, <span style="color: #00ff00;">InputIterator</span> <span style="color: #ffff00;">last</span>,
+                             <span style="color: #00ff00;">OutputIterator</span> <span style="color: #ffff00;">result</span>, <span style="color: #00ff00;">T</span>*<span style="color: #707183;">)</span>
+<span style="color: #707183;">{</span>
+    <span style="color: #00ff00;">T</span> <span style="color: #ffff00;">value</span> = *first;
+    *result = value;
+    <span style="color: #00ffff; font-weight: bold;">while</span> <span style="color: #7388d6;">(</span>++first != last<span style="color: #7388d6;">)</span> <span style="color: #7388d6;">{</span>
+        <span style="color: #00ffff; font-weight: bold;">if</span><span style="color: #909183;">(</span>value != *first<span style="color: #909183;">)</span> <span style="color: #909183;">{</span> <span style="color: #ff0000;">//</span><span style="color: #ff0000;">&#22914;&#26524;result&#20026;&#21482;&#35835;&#65292;&#36825;&#37324;&#23601;&#21482;&#33021;&#36890;&#36807;&#20540;&#21028;&#26029; &#32780;&#19981;&#33021;&#20351;&#29992;(*result != *first)</span>
+            value = *first;
+            *++result = value;
+        <span style="color: #909183;">}</span>
+    <span style="color: #7388d6;">}</span>
+    <span style="color: #00ffff; font-weight: bold;">return</span> ++result;
+    <span style="color: #707183;">}</span>
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: hsin</p>
+<p class="date">Created: 2017-06-20 二 17:35</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
