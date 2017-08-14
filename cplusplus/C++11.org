@@ -1,0 +1,54 @@
+* 深入理解 C++11
+** 什么是lambda，及怎么样使用它是最好的？
+** decltype和auto类型腿到有什么关系？
+** 什么是语义移动，以及（右值引用）是如何解决转发问题的？
+** default/deleted函数以及override是怎么回事？
+** 异常描述符被什么替代了？noexcept是如何工作的？
+** 什么是原子类型以及新的内存模型？
+** 如何在C++11中做并行编程？
+
+** C++11的新关键字如下：
+*** alignas
+#pargma pack(1)改变结构体中成员的对齐属性，效率降低。
+指定内存对齐使用alignas说明符。
+*** alignof
+获取制定类型或者变量的对齐方式的标准可移植的方案。
+*** decltype
+类似于GUNC中的typeof。
+*** auto（从新定义)
+auto不再是一个存储类型指示符（storage-class-specifier，如static、extern、therad_local)
+而是作为一个新的类型指示符（type-specifier，如int、float）
+auto声明变量的类型必须由编译器在编译时期推导而得。
+*** static_assert
+#+BEGIN_SRC C++
+  static_assert(4 <= sizeof(int), "error:small ints");
+#+END_SRC
+这行代码的意图是确定编译时（不是运行时）系统的int整形的长度不小于4字节，否则，编译器会报错。
+区别于assert在运行时检测，更早的将问题暴露出来。
+*** using（从新定义)
+**** 取代typedef
+**** 让父类同名函数在子类中以重载的方式使用
+*** noexcept
+noexcept会让异常抛出时直接调用std::terminate中断程序的执行，从而阻止了异常的继续传播。
+*** export（弃用，不过未来可能留作他用)
+*** nullptr
+nullptr用来替代NULL
+*** constexpr
+这是因为在C++中const类型只在初始化后才意味着他的值应该是常量表达式，从而在运行时不能被改变。不过由于初始化依旧是动态的，这对ROM设备来说并不适用。这就要求在动态初始化之前就将常量计算出来。为此标准增加了constexpr，他让函数和变量可以被编译时的常量取代。
+*** thread_local
+thread_local变量是C++11新引入的一种存储类型，它会影响变量的存储周期（Strorage duration），C++中有四种存储周期：
+**** automatic
+**** static
+**** dynamic
+**** thread
+有且只有thread_local关键字修饰的变量具有线程周期（thread duration），这些变量（或者说对象）在线程开始的时候被生成（allocated），在线程结束的时候被销毁（deallocated）。并且每一个线程都拥有一个独立的变量实例（Each thread has its own instance of the object）。
+*** final
+final关键字的作用是使派生类不可覆盖它所修饰的虚函数。
+*** override
+如果派生类在虚函数声明时使用了override描述符，那么该函数必须重载其基类中的同名函数，否则代码将无法编译通过。
+**** 小结：
+纯虚函数，继承的是接口（interface）
+虚函数，继承的是接口 + 缺省实现（default implementation)
+成员函数，继承的是接口 + 强制实现（mandatory implementation)
+类被final修饰，不能被继承。虚函数被final修饰，不能被override。
+再声明需要重写的函数后，加关键字override。
